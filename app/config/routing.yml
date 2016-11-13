@@ -1,3 +1,8 @@
+ski_smile:
+    resource: "@SkiSmileBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -2,12 +2,44 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}SkiSmile{% endblock %}</title>
+        {% block stylesheets %}
+            <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/vendor.min.css') }}" media="all"/>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block navigation %}
+            {% include '@SkiSmile/Navigations/navigation.html.twig'%}
+        {% endblock %}
+        {#{% block carousel %}#}
+            {#{% include '@HandMade/Slider/carousel_header.html.twig'%}#}
+        {#{% endblock %}#}
+        {% block body %}
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+                </div>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ asset('bundles/skismile/images/Mountains.jpg') }}"></div>
+            </div>
+        {% endblock %}
+        {% block footer %}
+        {% include '@SkiSmile/Footer/footer.html.twig'%}
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('dist/js/vendor.min.js') }}"></script>
+            <script>
+                $(document).ready(function(){
+                    $('.parallax').parallax();
+                });
+                $('.button-collapse').sideNav();
+            </script>
+        {% endblock %}
     </body>
 </html>
