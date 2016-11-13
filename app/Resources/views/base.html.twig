@@ -12,9 +12,6 @@
         {% block navigation %}
             {% include '@SkiSmile/Navigations/navigation.html.twig'%}
         {% endblock %}
-        {#{% block carousel %}#}
-            {#{% include '@HandMade/Slider/carousel_header.html.twig'%}#}
-        {#{% endblock %}#}
         {% block body %}
             <div class="parallax-container">
                 <div class="parallax"><img src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
@@ -30,7 +27,7 @@
             </div>
         {% endblock %}
         {% block footer %}
-        {% include '@SkiSmile/Footer/footer.html.twig'%}
+            {% include '@SkiSmile/Footer/footer.html.twig'%}
         {% endblock %}
         {% block javascripts %}
             <script src="{{ asset('dist/js/vendor.min.js') }}"></script>
