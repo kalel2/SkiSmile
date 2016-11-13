@@ -37,8 +37,20 @@
             <script>
                 $(document).ready(function(){
                     $('.parallax').parallax();
+                    $('.button-collapse').sideNav();
                 });
-                $('.button-collapse').sideNav();
+            </script>
+            <script>
+                $('.head-link').click(function(e) {
+                    e.preventDefault();
+
+                    var goto = $(this).attr('href');
+
+                    $('html, body').animate({
+                        scrollTop: $(goto).offset().top
+                    }, 800);
+                });
+
             </script>
         {% endblock %}
     </body>
