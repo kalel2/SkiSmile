@@ -1,22 +1,19 @@
-<div id="navbar" class="navbar-fixed scrollspy">
+<div id="navbar" class="navbar-fixed scrollspy main-menu">
     <nav class="white">
         <div class="nav-wrapper container">
             <div class="container"> <a href="#navbar" class="brand-logo blue-grey-text">Logo</a></div>
-{#Need collapse button#}
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
             <ul class="right hide-on-med-and-down">
-
-                <li><a class="head-link blue-grey-text" href="#projects">Projects</a></li>
-                <li><a class="head-link blue-grey-text" href="#aboutus">About Us</a></li>
-                <li><a class="head-link blue-grey-text" href="#contactus">Contact Us</a></li>
-
+                <li><a class="head-link blue-grey-text" href="#price">{{ 'Ціни'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="#aboutus">{{ 'Про нас'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="#contacts">{{ 'Контакти'|trans }}</a></li>
             </ul>
             <ul class="right side-nav" id="mobile-demo">
-                <li><a class="head-link blue-grey-text" href="#projects">Projects</a></li>
-                <li><a class="head-link blue-grey-text" href="#aboutus">About Us</a></li>
-
-                <li><a class="head-link blue-grey-text" href="#contactus">Contact Us</a></li>
+                <li><a class="head-link blue-grey-text" href="#projects">{{ 'Ціни'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="#aboutus">{{ 'Про нас'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="#contactus">{{ 'Контакти'|trans }}</a></li>
             </ul>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi mdi-menu mdi-48px"></i></a>
         </div>
     </nav>
 </div>

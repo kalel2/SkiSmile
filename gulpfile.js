@@ -14,11 +14,12 @@ var paths = {
         fonts: './web/dist/fonts/roboto/'
     },
     src: {
-        less : './src/SkiSmile/Resources/public/less/app.less'
+        less : './src/SkiSmileBundle/Resources/public/less/app.less'
     },
     bower: './bower_components/',
     npm: './node_modules/',
     font: './bower_components/materialize/dist/fonts/roboto/*',
+    fontMaterialize: './bower_components/mdi/fonts/*',
     materializeCss: './bower_components/materialize/dist/css/materialize.min.css',
     materializeJs: './bower_components/materialize/dist/js/materialize.min.js'
 };
@@ -49,6 +50,10 @@ gulp.task('vendor:fonts', function() {
     return gulp.src(paths.font)
         .pipe(gulp.dest(paths.dist.fonts));
 });
+gulp.task('vendor:mdi-fonts', function() {
+    return gulp.src(paths.fontMaterialize)
+        .pipe(gulp.dest(paths.dist.fontsMain));
+});
 
 gulp.task('vendor', [
     'vendor:js',
@@ -58,7 +63,7 @@ gulp.task('vendor', [
         .pipe(plugins.notify('task VENDOR is completed'));
 });
 gulp.task('app-less', function() {
-    gulp.src(paths.src.less)
+    return gulp.src(paths.src.less)
         .pipe(plugins.less())
         .pipe(plugins.minifyCss())
         .pipe(plugins.rename('app.min.css'))
