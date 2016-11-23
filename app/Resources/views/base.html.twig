@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
         <title>{% block title %}SkiSmile{% endblock %}</title>
         {% block stylesheets %}
             <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/vendor.min.css') }}" media="all"/>
@@ -24,11 +25,10 @@
                 $(document).ready(function(){
                     $('.parallax').parallax();
                     $('.button-collapse').sideNav({
-                                menuWidth: 300, // Default is 240
-                                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                                draggable: true // Choose whether you can drag to open on touch screens
-                            }
-                    );
+                        menuWidth: 300,
+                        closeOnClick: true,
+                        draggable: true
+                    });
                 });
             </script>
             <script>
