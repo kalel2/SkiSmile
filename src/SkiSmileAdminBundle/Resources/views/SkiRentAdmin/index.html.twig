@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Skirents list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th>Inventory</th>
+                <th>Priceone</th>
+                <th>Pricetwo</th>
+                <th>Pricethree</th>
+                <th>Pricefour</th>
+                <th>Pricefive</th>
+                <th>Pricesix</th>
+                <th>Guarantee</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for skiRent in skiRents %}
+            <tr>
+                <td><a href="{{ path('ski_rent_show', { 'id': skiRent.id }) }}">{{ skiRent.id }}</a></td>
+                <td>{{ skiRent.category }}</td>
+                <td>{{ skiRent.inventory }}</td>
+                <td>{{ skiRent.priceOne }}</td>
+                <td>{{ skiRent.priceTwo }}</td>
+                <td>{{ skiRent.priceThree }}</td>
+                <td>{{ skiRent.priceFour }}</td>
+                <td>{{ skiRent.priceFive }}</td>
+                <td>{{ skiRent.priceSix }}</td>
+                <td>{{ skiRent.guarantee }}</td>
+                <td>{% if skiRent.createdAt %}{{ skiRent.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if skiRent.updatedAt %}{{ skiRent.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ski_rent_show', { 'id': skiRent.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ski_rent_edit', { 'id': skiRent.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ski_rent_new') }}">Create a new skiRent</a>
+        </li>
+    </ul>
+{% endblock %}

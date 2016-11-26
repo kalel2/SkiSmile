@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Skiservices list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Service</th>
+                <th>Price</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for skiService in skiServices %}
+            <tr>
+                <td><a href="{{ path('skiservice_show', { 'id': skiService.id }) }}">{{ skiService.id }}</a></td>
+                <td>{{ skiService.service }}</td>
+                <td>{{ skiService.price }}</td>
+                <td>{% if skiService.createdAt %}{{ skiService.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if skiService.updatedAt %}{{ skiService.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('skiservice_show', { 'id': skiService.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('skiservice_edit', { 'id': skiService.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('skiservice_new') }}">Create a new skiService</a>
+        </li>
+    </ul>
+{% endblock %}

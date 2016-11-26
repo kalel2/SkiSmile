@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Skirent</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ skiRent.id }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ skiRent.category }}</td>
+            </tr>
+            <tr>
+                <th>Inventory</th>
+                <td>{{ skiRent.inventory }}</td>
+            </tr>
+            <tr>
+                <th>Priceone</th>
+                <td>{{ skiRent.priceOne }}</td>
+            </tr>
+            <tr>
+                <th>Pricetwo</th>
+                <td>{{ skiRent.priceTwo }}</td>
+            </tr>
+            <tr>
+                <th>Pricethree</th>
+                <td>{{ skiRent.priceThree }}</td>
+            </tr>
+            <tr>
+                <th>Pricefour</th>
+                <td>{{ skiRent.priceFour }}</td>
+            </tr>
+            <tr>
+                <th>Pricefive</th>
+                <td>{{ skiRent.priceFive }}</td>
+            </tr>
+            <tr>
+                <th>Pricesix</th>
+                <td>{{ skiRent.priceSix }}</td>
+            </tr>
+            <tr>
+                <th>Guarantee</th>
+                <td>{{ skiRent.guarantee }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if skiRent.createdAt %}{{ skiRent.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if skiRent.updatedAt %}{{ skiRent.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('skirent_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('skirent_edit', { 'id': skiRent.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
