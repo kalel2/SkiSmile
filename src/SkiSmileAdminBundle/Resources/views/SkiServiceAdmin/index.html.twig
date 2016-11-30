@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
     <h1>Skiservices list</h1>
@@ -17,7 +17,7 @@
         <tbody>
         {% for skiService in skiServices %}
             <tr>
-                <td><a href="{{ path('skiservice_show', { 'id': skiService.id }) }}">{{ skiService.id }}</a></td>
+                <td><a href="{{ path('ski_service_show', { 'id': skiService.id }) }}">{{ skiService.id }}</a></td>
                 <td>{{ skiService.service }}</td>
                 <td>{{ skiService.price }}</td>
                 <td>{% if skiService.createdAt %}{{ skiService.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('skiservice_show', { 'id': skiService.id }) }}">show</a>
+                            <a href="{{ path('ski_service_show', { 'id': skiService.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('skiservice_edit', { 'id': skiService.id }) }}">edit</a>
+                            <a href="{{ path('ski_service_edit', { 'id': skiService.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('skiservice_new') }}">Create a new skiService</a>
+            <a href="{{ path('ski_service_new') }}">Create a new skiService</a>
         </li>
     </ul>
 {% endblock %}

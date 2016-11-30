@@ -16,6 +16,9 @@ var paths = {
     src: {
         less : './src/SkiSmileBundle/Resources/public/less/app.less'
     },
+    srcAdmin: {
+        less : './src/SkiSmileAdminBundle/Resources/public/less/admin.less'
+    },
     bower: './bower_components/',
     npm: './node_modules/',
     font: './bower_components/materialize/dist/fonts/roboto/*',
@@ -67,5 +70,12 @@ gulp.task('app-less', function() {
         .pipe(plugins.less())
         .pipe(plugins.minifyCss())
         .pipe(plugins.rename('app.min.css'))
+        .pipe(gulp.dest(paths.dist.css));
+});
+gulp.task('admin-less', function() {
+    return gulp.src(paths.srcAdmin.less)
+        .pipe(plugins.less())
+        .pipe(plugins.minifyCss())
+        .pipe(plugins.rename('admin.min.css'))
         .pipe(gulp.dest(paths.dist.css));
 });

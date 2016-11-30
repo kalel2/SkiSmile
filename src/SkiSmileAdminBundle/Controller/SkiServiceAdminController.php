@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
  * Skiservice admin controller.
  *
  * @Route("admin/ski_service")
+ * @Template()
  */
 class SkiServiceAdminController extends Controller
 {
@@ -29,9 +30,9 @@ class SkiServiceAdminController extends Controller
 
         $skiServices = $em->getRepository('SkiSmileAdminBundle:SkiService')->findAll();
 
-        return $this->render('skiservice/index.html.twig', array(
+        return  array(
             'skiServices' => $skiServices,
-        ));
+        );
     }
 
     /**

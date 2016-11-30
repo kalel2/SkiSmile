@@ -13,32 +13,34 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * Product admin controller.
  *
- * @Route("product")
+ * @Route("admin/product")
  */
 class ProductAdminController extends Controller
 {
-//    /**
-//     * Lists all product entities.
-//     *
-//     * @Route("/", name="product_index")
-//     * @Method("GET")
-//     */
-//    public function indexAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//
-//        $products = $em->getRepository('SkiSmileAdminBundle:Product')->findAll();
-//
-//        return $this->render('product/index.html.twig', array(
-//            'products' => $products,
-//        ));
-//    }
+    /**
+     * Lists all product entities.
+     *
+     * @Route("/", name="product_admin_index")
+     * @Template()
+     * @Method("GET")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $products = $em->getRepository('SkiSmileAdminBundle:Product')->findAll();
+
+        return  array(
+            'products' => $products,
+        );
+    }
 
     /**
      * Creates a new product entity.
      *
      * @Route("/new", name="product_new")
      * @Method({"GET", "POST"})
+     * @Template()
      */
     public function newAction(Request $request)
     {
@@ -54,10 +56,10 @@ class ProductAdminController extends Controller
             return $this->redirectToRoute('product_show', array('id' => $product->getId()));
         }
 
-        return $this->render('product/new.html.twig', array(
+        return array(
             'product' => $product,
             'form' => $form->createView(),
-        ));
+        );
     }
 
 //    /**

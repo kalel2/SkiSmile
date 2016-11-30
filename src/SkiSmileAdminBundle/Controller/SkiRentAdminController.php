@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * Skirent admin controller.
  *
- * @Route("ski_rent")
+ * @Route("admin/ski_rent")
  */
 class SkiRentAdminController extends Controller
 {
@@ -31,7 +31,7 @@ class SkiRentAdminController extends Controller
         $skiRents = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findAll();
 
         return array(
-            'skiRents' => $skiRents,
+            'entities' => $skiRents,
         );
     }
 

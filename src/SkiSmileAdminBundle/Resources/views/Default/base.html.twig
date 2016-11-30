@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{% block title %}SkiSmile{% endblock %}</title>
+    {% block stylesheets %}
+        <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/vendor.min.css') }}" media="all"/>
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('dist/css/app.min.css') }}" media="all"/>#}
+        <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/admin.min.css') }}" media="all"/>
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/skismileadmin/iconfont/material-icons.css') }}" media="all"/>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+{% block navigation %}
+    <header>
+        {% include '@SkiSmileAdmin/Navigations/navigation.html.twig'%}
+    </header>
+{% endblock %}
+<div class="main">
+{% block body %}
+{% endblock %}
+</div>
+{% block footer %}
+    {% include '@SkiSmile/Footer/footer.html.twig'%}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('dist/js/vendor.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.button-collapse').sideNav({
+                menuWidth: 300,
+//                closeOnClick: true,
+                draggable: true
+            });
+            $('.collapsible').collapsible();
+        });
+    </script>
+    {#<script>#}
+        {#$('.head-link').click(function(e) {#}
+            {#e.preventDefault();#}
+
+            {#var goto = $(this).attr('href');#}
+
+            {#$('html, body').animate({#}
+                {#scrollTop: $(goto).offset().top#}
+            {#}, 800);#}
+        {#});#}
+
+    {#</script>#}
+{% endblock %}
+</body>
+</html>

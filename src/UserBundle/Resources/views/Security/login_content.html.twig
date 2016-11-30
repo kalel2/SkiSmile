@@ -23,12 +23,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s12 center">
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            <label for="remember_me">{{ "Запам'ятати мене"|trans }}</label>
+        <div class="switch center">
+            <label for="remember_me">
+                {{ "Запам'ятати мене"|trans }}
+                <input type="checkbox" id="remember_me" name="_remember_me" value="off" />
+                <span class="lever"></span>
+            </label>
         </div>
     </div>
-    <div class="col s12 center">
-        <input class="btn waves-effect waves-light blue-grey" type="submit" id="_submit" name="_submit" value="{{ 'Увійти'|trans }}" />
+    <input type="hidden" name="_target_path" value="admin_index" />
+    <div class="row">
+        <div class="col s12 center">
+            <input class="btn waves-effect waves-light blue-grey" type="submit" id="_submit" name="_submit" value="{{ 'Увійти'|trans }}" />
+        </div>
     </div>
 </form>

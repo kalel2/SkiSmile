@@ -1,48 +1,48 @@
-{% extends 'base.html.twig' %}
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h1>Skirents list</h1>
+    <h2>{{ 'Ціни на прокат інветаря' }}</h2>
 
-    <table>
+    <table class="responsive-table striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Category</th>
-                <th>Inventory</th>
-                <th>Priceone</th>
-                <th>Pricetwo</th>
-                <th>Pricethree</th>
-                <th>Pricefour</th>
-                <th>Pricefive</th>
-                <th>Pricesix</th>
-                <th>Guarantee</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
-                <th>Actions</th>
+                <th>{{ '№' }}</th>
+                <th>{{ 'Категорія'|trans }}</th>
+                <th>{{ 'Інвентар'|trans }}</th>
+                <th>{{ '1/2*' }}</th>
+                <th>{{ '1' }}</th>
+                <th>{{ '2' }}</th>
+                <th>{{ '3' }}</th>
+                <th>{{ '4' }}</th>
+                <th>{{ '5' }}</th>
+                <th>{{ '6' }}</th>
+                <th>{{ 'Дії'|trans }}</th>
             </tr>
         </thead>
         <tbody>
-        {% for skiRent in skiRents %}
+        {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('ski_rent_show', { 'id': skiRent.id }) }}">{{ skiRent.id }}</a></td>
-                <td>{{ skiRent.category }}</td>
-                <td>{{ skiRent.inventory }}</td>
-                <td>{{ skiRent.priceOne }}</td>
-                <td>{{ skiRent.priceTwo }}</td>
-                <td>{{ skiRent.priceThree }}</td>
-                <td>{{ skiRent.priceFour }}</td>
-                <td>{{ skiRent.priceFive }}</td>
-                <td>{{ skiRent.priceSix }}</td>
-                <td>{{ skiRent.guarantee }}</td>
-                <td>{% if skiRent.createdAt %}{{ skiRent.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if skiRent.updatedAt %}{{ skiRent.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('ski_rent_show', { 'id': entity.id }) }}">
+                        {{ entity.id }}
+                    </a>
+                </td>
+                <td>{{ entity.category }}</td>
+                <td>{{ entity.inventory }}</td>
+                <td>{{ entity.priceOne }}</td>
+                <td>{{ entity.priceTwo }}</td>
+                <td>{{ entity.priceThree }}</td>
+                <td>{{ entity.priceFour }}</td>
+                <td>{{ entity.priceFive }}</td>
+                <td>{{ entity.priceSix }}</td>
+                <td>{{ entity.guarantee }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('ski_rent_show', { 'id': skiRent.id }) }}">show</a>
+                            <a href="{{ path('ski_rent_show', { 'id': entity.id }) }}">{{ 'Переглянути' }}</a>
                         </li>
                         <li>
-                            <a href="{{ path('ski_rent_edit', { 'id': skiRent.id }) }}">edit</a>
+                            <a href="{{ path('ski_rent_edit', { 'id': entity.id }) }}">{{ 'Редагувати' }}</a>
                         </li>
                     </ul>
                 </td>
@@ -53,7 +53,8 @@
 
     <ul>
         <li>
-            <a href="{{ path('ski_rent_new') }}">Create a new skiRent</a>
+            {#<a href="{{ path('ski_rent_new') }}">{{ 'Додати запис'|trans }}</a>#}
+            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i>{{ 'Додати запис'|trans }}</a>
         </li>
     </ul>
 {% endblock %}
