@@ -6,7 +6,27 @@
                     <img src="{{ asset('bundles/skismile/images/ski-smile-logo.png')}}">
                 </a>
             </div>
+            <ul class="language-switcher">
+                {% set route_args = app.request.attributes.get('_route_params')%}
 
+                {% if app.request.attributes.get('_route') == 'main' %}
+                    {% set route = 'main' %}
+                {% else %}
+                    {% set route = app.request.attributes.get('_route') %}
+                {% endif %}
+                <li>
+                    <a href='{{ path(route, route_args|merge({'_locale': 'uk'})) }}' class="blue-grey-text">
+                        <span class="icon flag flag-ua"></span>
+                        <span class="language-name">{{ 'UA' | trans }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='{{ path(route, route_args|merge({'_locale': 'ru'})) }}' class="blue-grey-text">
+                        <span class="icon flag flag-ru"></span>
+                        <span class="language-name">{{ 'RU' | trans }}</span>
+                    </a>
+                </li>
+            </ul>
             <ul class="right hide-on-med-and-down">
                 <li><a class="head-link blue-grey-text" href="#aboutus">{{ 'Про нас'|trans }}</a></li>
                 <li><a class="head-link blue-grey-text" href="#price">{{ 'Ціни'|trans }}</a></li>

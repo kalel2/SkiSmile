@@ -6,3 +6,32 @@
     justify-content: center;
   }
 }
+.language-switcher {
+  float: right !important;
+  height: 75px;
+  display: flex;
+  @media @mobile-landscape-and-below {
+    flex-direction: column;
+    justify-content: center;
+  }
+  li {
+    @media @mobile-landscape-and-below {
+      height: 15px;
+      line-height: 15px;
+      //span.language-name {
+      //  display: none;
+      //}
+    }
+    a {
+      padding: 0 5px;
+    }
+  }
+}
+.nav-wrapper {
+  @media @mobile-landscape-and-below {
+    width: 100%;
+    .button-collapse {
+      margin-left: 0;
+    }
+  }
+}
