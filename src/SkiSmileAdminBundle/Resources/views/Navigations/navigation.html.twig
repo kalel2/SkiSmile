@@ -1,7 +1,11 @@
 <div class="admin-navigation">
     <nav class="top-nav blue-grey darken-3">
         <div class="container center">
-            {{ 'Logo' }}
+            <div class="site-logo">
+                <a href="#navbar" class="brand-logo blue-grey-text">
+                    <img src="{{ asset('bundles/skismile/images/ski-smile-logo.png')}}">
+                </a>
+            </div>
         </div>
     </nav>
     <div class="menu-button">
@@ -40,7 +44,7 @@
         <li class="products-item">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header waves-effect waves-light"><i class="mdi mdi-buffer"></i>{{ 'Категорії'|trans }}</a>
+                    <a class="collapsible-header waves-effect waves-light"><i class="mdi mdi-layers"></i>{{ 'Категорії'|trans }}</a>
                     <div class="collapsible-body">
                         <ul class="sub-items blue-grey darken-3">
                             <li><a class="waves-effect waves-light" href="{{ path("product_category_admin_index") }}"><i class="mdi mdi-view-list"></i>{{ 'Список'|trans }}</a></li>

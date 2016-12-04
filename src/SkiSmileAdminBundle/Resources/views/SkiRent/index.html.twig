@@ -1,32 +1,33 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h2>{{ 'Ціни на прокат інветаря' }}</h2>
+    <div class="card-panel">
+    <h3>{{ 'Ціни на прокат інветаря 2016-2017' }}</h3>
 
-    <table class="responsive-table striped">
+    <table class="responsive-table striped ski-table">
         <thead>
             <tr>
-                <th>{{ '№' }}</th>
                 <th>{{ 'Категорія'|trans }}</th>
                 <th>{{ 'Інвентар'|trans }}</th>
-                <th>{{ '1/2*' }}</th>
+                {#<th>{{ '1/2*' }}</th>#}
                 <th>{{ '1' }}</th>
                 <th>{{ '2' }}</th>
                 <th>{{ '3' }}</th>
                 <th>{{ '4' }}</th>
                 <th>{{ '5' }}</th>
                 <th>{{ '6' }}</th>
+                <th>{{ 'Застава' }}</th>
                 <th>{{ 'Дії'|trans }}</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td>
-                    <a href="{{ path('ski_rent_admin_show', { 'id': entity.id }) }}">
-                        {{ entity.id }}
-                    </a>
-                </td>
+                {#<td>#}
+                    {#<a href="{{ path('ski_rent_admin_show', { 'id': entity.id }) }}">#}
+                        {#{{ entity.id }}#}
+                    {#</a>#}
+                {#</td>#}
                 <td>{{ entity.category }}</td>
                 <td>{{ entity.inventory }}</td>
                 <td>{{ entity.priceOne }}</td>
@@ -37,12 +38,18 @@
                 <td>{{ entity.priceSix }}</td>
                 <td>{{ entity.guarantee }}</td>
                 <td>
-                    <ul>
+                    <ul class="table-actions">
                         <li>
-                            <a href="{{ path('ski_rent_admin_show', { 'id': entity.id }) }}">{{ 'Переглянути' }}</a>
+                            <a class="btn-floating btn-small waves-effect waves-light teal" href="{{ path('ski_rent_admin_show', { 'id': entity.id }) }}">
+                                <i class="material-icons">visibility</i>
+                                {{ 'Переглянути' }}
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ path('ski_rent_admin_edit', { 'id': entity.id }) }}">{{ 'Редагувати' }}</a>
+                            <a class="btn-floating btn-small waves-effect waves-light red"  href="{{ path('ski_rent_admin_edit', { 'id': entity.id }) }}">
+                                <i class="material-icons">edit</i>
+                                {{ 'Редагувати' }}
+                            </a>
                         </li>
                     </ul>
                 </td>
@@ -53,8 +60,12 @@
 
     <ul>
         <li>
-            <a href="{{ path('ski_rent_admin_new') }}">{{ 'Додати запис'|trans }}</a>
-            {#<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i>{{ 'Додати запис'|trans }}</a>#}
+            {#<a href="{{ path('ski_rent_admin_new') }}">{{ 'Додати запис'|trans }}</a>#}
+            <a class="btn-floating waves-effect waves-light teal" href="{{ path('ski_rent_admin_new') }}">
+                <i class="material-icons">add</i>
+                {{ 'Додати запис'|trans }}
+            </a>
         </li>
     </ul>
+    </div>
 {% endblock %}

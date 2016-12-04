@@ -100,7 +100,7 @@ class SkiRentAdminController extends Controller
 
         return array(
             'skiRent' => $skiRent,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
