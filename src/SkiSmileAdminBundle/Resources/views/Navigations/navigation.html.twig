@@ -22,8 +22,8 @@
                 </div>
             </div>
         </li>
-        <li><a class="waves-effect waves-light" href="{{ path("ski_rent_index") }}"><i class="mdi mdi-view-headline"></i>{{ 'Прокат'|trans }}</a></li>
-        <li><a class="waves-effect waves-light" href="{{ path("ski_service_index") }}"><i class="mdi mdi-webhook"></i>{{ 'Сервіс'|trans }}</a></li>
+        <li><a class="waves-effect waves-light" href="{{ path("ski_rent_admin_index") }}"><i class="mdi mdi-view-headline"></i>{{ 'Прокат'|trans }}</a></li>
+        <li><a class="waves-effect waves-light" href="{{ path("ski_service_admin_index") }}"><i class="mdi mdi-webhook"></i>{{ 'Сервіс'|trans }}</a></li>
         <li class="products-item">
             <ul class="collapsible collapsible-accordion">
                 <li>
@@ -31,7 +31,20 @@
                     <div class="collapsible-body">
                         <ul class="sub-items blue-grey darken-3">
                             <li><a class="waves-effect waves-light" href="{{ path("product_admin_index") }}"><i class="mdi mdi-view-list"></i>{{ 'Список'|trans }}</a></li>
-                            <li><a class="waves-effect waves-light" href="{{ path("product_new") }}"><i class="mdi mdi-plus-circle"></i>{{ 'Додати новий'|trans }}</a></li>
+                            <li><a class="waves-effect waves-light" href="{{ path("product_admin_new") }}"><i class="mdi mdi-plus-circle"></i>{{ 'Додати новий'|trans }}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="products-item">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header waves-effect waves-light"><i class="mdi mdi-buffer"></i>{{ 'Категорії'|trans }}</a>
+                    <div class="collapsible-body">
+                        <ul class="sub-items blue-grey darken-3">
+                            <li><a class="waves-effect waves-light" href="{{ path("product_category_admin_index") }}"><i class="mdi mdi-view-list"></i>{{ 'Список'|trans }}</a></li>
+                            <li><a class="waves-effect waves-light" href="{{ path("product_category_admin_new") }}"><i class="mdi mdi-plus-circle"></i>{{ 'Додати нову'|trans }}</a></li>
                         </ul>
                     </div>
                 </li>

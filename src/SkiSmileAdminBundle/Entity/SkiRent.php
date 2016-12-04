@@ -3,13 +3,17 @@
 namespace SkiSmileAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use SkiSmileAdminBundle\Entity\Traits\TimestampableTrait;
+use Gedmo\Mapping\Annotation as Gedmo; // gedmo annotations
+use SkiSmileAdminBundle\Entity\Translation\SkiRentTranslation;
 
 /**
  * SkiRent
  *
  * @ORM\Table(name="ski_rent")
  * @ORM\Entity(repositoryClass="SkiSmileAdminBundle\Repository\SkiRentRepository")
+ * @Gedmo\TranslationEntity(class="SkiSmileAdminBundle\Entity\Translation\SkiRentTranslation")
  * @ORM\HasLifecycleCallbacks()
  */
 class SkiRent
@@ -34,7 +38,7 @@ class SkiRent
 
     /**
      * @var string
-     *
+     * @Gedmo\Translatable
      * @ORM\Column(name="inventory", type="string", length=255, nullable=true)
      */
     private $inventory;
@@ -88,10 +92,26 @@ class SkiRent
      */
     private $guarantee;
 
+    /**
+     * @ORM\OneToMany(
+     * targetEntity="SkiSmileAdminBundle\Entity\Translation\SkiRentTranslation",
+     * mappedBy="object",
+     * cascade={"persist", "remove"}
+     * )
+     */
+    private $translations;
+
+    /**
+     * Required for Translatable behaviour
+     * @Gedmo\Locale
+     */
+    protected $locale;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTime());
         $this->setUpdatedAt(new \DateTime());
+        $this->translations = new ArrayCollection;
     }
 
     /**
@@ -327,6 +347,36 @@ class SkiRent
     public function getGuarantee()
     {
         return $this->guarantee;
+    }
+
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
+
+    public function addTranslation(SkiRentTranslation $t)
+    {
+        if (!$this->translations->contains($t)) {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    public function removeTranslation(SkiRentTranslation $t)
+    {
+        $this->translations->removeElement($t);
+    }
+
+
+
+    /**
+     * Get translations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
     }
 }
 

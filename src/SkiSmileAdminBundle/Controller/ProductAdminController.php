@@ -21,7 +21,7 @@ class ProductAdminController extends Controller
      * Lists all product entities.
      *
      * @Route("/", name="product_admin_index")
-     * @Template()
+     * @Template("@SkiSmileAdmin/Product/index.html.twig")
      * @Method("GET")
      */
     public function indexAction()
@@ -38,9 +38,9 @@ class ProductAdminController extends Controller
     /**
      * Creates a new product entity.
      *
-     * @Route("/new", name="product_new")
+     * @Route("/new", name="product_admin_new")
      * @Method({"GET", "POST"})
-     * @Template()
+     * @Template("@SkiSmileAdmin/Product/new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -53,7 +53,7 @@ class ProductAdminController extends Controller
             $em->persist($product);
             $em->flush($product);
 
-            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            return $this->redirectToRoute('product_admin_show', array('id' => $product->getId()));
         }
 
         return array(
@@ -62,27 +62,29 @@ class ProductAdminController extends Controller
         );
     }
 
-//    /**
-//     * Finds and displays a product entity.
-//     *
-//     * @Route("/{id}", name="product_show")
-//     * @Method("GET")
-//     */
-//    public function showAction(Product $product)
-//    {
-//        $deleteForm = $this->createDeleteForm($product);
-//
-//        return $this->render('product/show.html.twig', array(
-//            'product' => $product,
-//            'delete_form' => $deleteForm->createView(),
-//        ));
-//    }
+    /**
+     * Finds and displays a product entity.
+     *
+     * @Route("/{id}", name="product_admin_show")
+     * @Method("GET")
+     * @Template("@SkiSmileAdmin/Product/show.html.twig")
+     */
+    public function showAction(Product $product)
+    {
+        $deleteForm = $this->createDeleteForm($product);
+
+        return array(
+            'product' => $product,
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
 
     /**
      * Displays a form to edit an existing product entity.
      *
-     * @Route("/{id}/edit", name="product_edit")
+     * @Route("/{id}/edit", name="product_admin_edit")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/Product/edit.html.twig")
      */
     public function editAction(Request $request, Product $product)
     {
@@ -93,20 +95,20 @@ class ProductAdminController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('product_edit', array('id' => $product->getId()));
+            return $this->redirectToRoute('product_admin_edit', array('id' => $product->getId()));
         }
 
-        return $this->render('product/edit.html.twig', array(
+        return  array(
             'product' => $product,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Deletes a product entity.
      *
-     * @Route("/{id}", name="product_delete")
+     * @Route("/{id}", name="product_admin_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Product $product)
@@ -120,7 +122,7 @@ class ProductAdminController extends Controller
             $em->flush($product);
         }
 
-        return $this->redirectToRoute('product_index');
+        return $this->redirectToRoute('product_admin_index');
     }
 
     /**
@@ -133,7 +135,7 @@ class ProductAdminController extends Controller
     private function createDeleteForm(Product $product)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('product_delete', array('id' => $product->getId())))
+            ->setAction($this->generateUrl('product_admin_delete', array('id' => $product->getId())))
             ->setMethod('DELETE')
             ->getForm()
             ;

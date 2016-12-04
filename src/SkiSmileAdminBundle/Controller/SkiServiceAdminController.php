@@ -21,8 +21,9 @@ class SkiServiceAdminController extends Controller
     /**
      * Lists all skiService entities.
      *
-     * @Route("/", name="ski_service_index")
+     * @Route("/", name="ski_service_admin_index")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/SkiService/index.html.twig")
      */
     public function indexAction()
     {
@@ -30,7 +31,7 @@ class SkiServiceAdminController extends Controller
 
         $skiServices = $em->getRepository('SkiSmileAdminBundle:SkiService')->findAll();
 
-        return  array(
+        return array(
             'skiServices' => $skiServices,
         );
     }
@@ -38,8 +39,9 @@ class SkiServiceAdminController extends Controller
     /**
      * Creates a new skiService entity.
      *
-     * @Route("/new", name="ski_service_new")
+     * @Route("/new", name="ski_service_admin_new")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/SkiService/new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -52,36 +54,38 @@ class SkiServiceAdminController extends Controller
             $em->persist($skiService);
             $em->flush($skiService);
 
-            return $this->redirectToRoute('ski_service_show', array('id' => $skiService->getId()));
+            return $this->redirectToRoute('ski_service_admin_show', array('id' => $skiService->getId()));
         }
 
-        return $this->render('skiservice/new.html.twig', array(
+        return array(
             'skiService' => $skiService,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
      * Finds and displays a skiService entity.
      *
-     * @Route("/{id}", name="ski_service_show")
+     * @Route("/{id}", name="ski_service_admin_show")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/SkiService/show.html.twig")
      */
     public function showAction(SkiService $skiService)
     {
         $deleteForm = $this->createDeleteForm($skiService);
 
-        return $this->render('skiservice/show.html.twig', array(
+        return array(
             'skiService' => $skiService,
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Displays a form to edit an existing skiService entity.
      *
-     * @Route("/{id}/edit", name="ski_service_edit")
+     * @Route("/{id}/edit", name="ski_service_admin_edit")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/SkiService/edit.html.twig")
      */
     public function editAction(Request $request, SkiService $skiService)
     {
@@ -92,20 +96,20 @@ class SkiServiceAdminController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ski_service_edit', array('id' => $skiService->getId()));
+            return $this->redirectToRoute('ski_service_admin_edit', array('id' => $skiService->getId()));
         }
 
-        return $this->render('skiservice/edit.html.twig', array(
+        return array(
             'skiService' => $skiService,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Deletes a skiService entity.
      *
-     * @Route("/{id}", name="ski_service_delete")
+     * @Route("/{id}", name="ski_service_admin_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, SkiService $skiService)
@@ -119,7 +123,7 @@ class SkiServiceAdminController extends Controller
             $em->flush($skiService);
         }
 
-        return $this->redirectToRoute('ski_service_index');
+        return $this->redirectToRoute('ski_service_admin_index');
     }
 
     /**
@@ -132,7 +136,7 @@ class SkiServiceAdminController extends Controller
     private function createDeleteForm(SkiService $skiService)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('ski_service_delete', array('id' => $skiService->getId())))
+            ->setAction($this->generateUrl('ski_service_admin_delete', array('id' => $skiService->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

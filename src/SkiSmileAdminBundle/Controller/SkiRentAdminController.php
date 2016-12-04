@@ -20,9 +20,9 @@ class SkiRentAdminController extends Controller
     /**
      * Lists all skiRent entities.
      *
-     * @Route("/", name="ski_rent_index")
+     * @Route("/", name="ski_rent_admin_index")
      * @Method("GET")
-     * @Template()
+     * @Template("@SkiSmileAdmin/SkiRent/index.html.twig")
      */
     public function indexAction()
     {
@@ -38,8 +38,9 @@ class SkiRentAdminController extends Controller
     /**
      * Creates a new skiRent entity.
      *
-     * @Route("/new", name="ski_rent_new")
+     * @Route("/new", name="ski_rent_admin_new")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/SkiRent/new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -52,36 +53,38 @@ class SkiRentAdminController extends Controller
             $em->persist($skiRent);
             $em->flush($skiRent);
 
-            return $this->redirectToRoute('ski_rent_show', array('id' => $skiRent->getId()));
+            return $this->redirectToRoute('ski_rent_admin_show', array('id' => $skiRent->getId()));
         }
 
-        return $this->render('skirent/new.html.twig', array(
+        return array(
             'skiRent' => $skiRent,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
      * Finds and displays a skiRent entity.
      *
-     * @Route("/{id}", name="ski_rent_show")
+     * @Route("/{id}", name="ski_rent_admin_show")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/SkiRent/show.html.twig")
      */
     public function showAction(SkiRent $skiRent)
     {
         $deleteForm = $this->createDeleteForm($skiRent);
 
-        return $this->render('skirent/show.html.twig', array(
+        return  array(
             'skiRent' => $skiRent,
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Displays a form to edit an existing skiRent entity.
      *
-     * @Route("/{id}/edit", name="ski_rent_edit")
+     * @Route("/{id}/edit", name="ski_rent_admin_edit")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/SkiRent/edit.html.twig")
      */
     public function editAction(Request $request, SkiRent $skiRent)
     {
@@ -92,20 +95,20 @@ class SkiRentAdminController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ski_rent_edit', array('id' => $skiRent->getId()));
+            return $this->redirectToRoute('ski_rent_admin_edit', array('id' => $skiRent->getId()));
         }
 
-        return $this->render('skirent/edit.html.twig', array(
+        return array(
             'skiRent' => $skiRent,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Deletes a skiRent entity.
      *
-     * @Route("/{id}", name="ski_rent_delete")
+     * @Route("/{id}", name="ski_rent_admin_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, SkiRent $skiRent)
@@ -119,7 +122,7 @@ class SkiRentAdminController extends Controller
             $em->flush($skiRent);
         }
 
-        return $this->redirectToRoute('ski_rent_index');
+        return $this->redirectToRoute('ski_rent_admin_index');
     }
 
     /**
@@ -132,7 +135,7 @@ class SkiRentAdminController extends Controller
     private function createDeleteForm(SkiRent $skiRent)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('ski_rent_delete', array('id' => $skiRent->getId())))
+            ->setAction($this->generateUrl('ski_rent_admin_delete', array('id' => $skiRent->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

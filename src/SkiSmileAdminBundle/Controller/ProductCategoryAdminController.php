@@ -13,15 +13,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * Productcategory admin controller.
  *
- * @Route("product_category")
+ * @Route("admin/product_category")
  */
 class ProductCategoryAdminController extends Controller
 {
     /**
      * Lists all productCategory entities.
      *
-     * @Route("/", name="product_category_index")
+     * @Route("/", name="product_category_admin_index")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/ProductCategory/index.html.twig")
      */
     public function indexAction()
     {
@@ -29,16 +30,17 @@ class ProductCategoryAdminController extends Controller
 
         $productCategories = $em->getRepository('SkiSmileAdminBundle:ProductCategory')->findAll();
 
-        return $this->render('productcategory/index.html.twig', array(
+        return  array(
             'productCategories' => $productCategories,
-        ));
+        );
     }
 
     /**
      * Creates a new productCategory entity.
      *
-     * @Route("/new", name="product_category_new")
+     * @Route("/new", name="product_category_admin_new")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/ProductCategory/new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -51,36 +53,38 @@ class ProductCategoryAdminController extends Controller
             $em->persist($productCategory);
             $em->flush($productCategory);
 
-            return $this->redirectToRoute('product_category_show', array('id' => $productCategory->getId()));
+            return $this->redirectToRoute('product_category_admin_show', array('id' => $productCategory->getId()));
         }
 
-        return $this->render('productcategory/new.html.twig', array(
+        return  array(
             'productCategory' => $productCategory,
             'form' => $form->createView(),
-        ));
+        );
     }
 
     /**
      * Finds and displays a productCategory entity.
      *
-     * @Route("/{id}", name="product_category_show")
+     * @Route("/{id}", name="product_category_admin_show")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/ProductCategory/show.html.twig")
      */
     public function showAction(ProductCategory $productCategory)
     {
         $deleteForm = $this->createDeleteForm($productCategory);
 
-        return $this->render('productcategory/show.html.twig', array(
+        return array(
             'productCategory' => $productCategory,
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Displays a form to edit an existing productCategory entity.
      *
-     * @Route("/{id}/edit", name="product_category_edit")
+     * @Route("/{id}/edit", name="product_category_admin_edit")
      * @Method({"GET", "POST"})
+     * @Template("@SkiSmileAdmin/ProductCategory/edit.html.twig")
      */
     public function editAction(Request $request, ProductCategory $productCategory)
     {
@@ -91,20 +95,20 @@ class ProductCategoryAdminController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('product_category_edit', array('id' => $productCategory->getId()));
+            return $this->redirectToRoute('product_category_admin_edit', array('id' => $productCategory->getId()));
         }
 
-        return $this->render('productcategory/edit.html.twig', array(
+        return array(
             'productCategory' => $productCategory,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        );
     }
 
     /**
      * Deletes a productCategory entity.
      *
-     * @Route("/{id}", name="productcategory_delete")
+     * @Route("/{id}", name="product_category_admin_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, ProductCategory $productCategory)
@@ -118,7 +122,7 @@ class ProductCategoryAdminController extends Controller
             $em->flush($productCategory);
         }
 
-        return $this->redirectToRoute('product_category_index');
+        return $this->redirectToRoute('product_category_admin_index');
     }
 
     /**
@@ -131,7 +135,7 @@ class ProductCategoryAdminController extends Controller
     private function createDeleteForm(ProductCategory $productCategory)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('product_category_delete', array('id' => $productCategory->getId())))
+            ->setAction($this->generateUrl('product_category_admin_delete', array('id' => $productCategory->getId())))
             ->setMethod('DELETE')
             ->getForm()
             ;

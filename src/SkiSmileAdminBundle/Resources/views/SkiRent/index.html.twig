@@ -23,7 +23,7 @@
         {% for entity in entities %}
             <tr>
                 <td>
-                    <a href="{{ path('ski_rent_show', { 'id': entity.id }) }}">
+                    <a href="{{ path('ski_rent_admin_show', { 'id': entity.id }) }}">
                         {{ entity.id }}
                     </a>
                 </td>
@@ -39,10 +39,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('ski_rent_show', { 'id': entity.id }) }}">{{ 'Переглянути' }}</a>
+                            <a href="{{ path('ski_rent_admin_show', { 'id': entity.id }) }}">{{ 'Переглянути' }}</a>
                         </li>
                         <li>
-                            <a href="{{ path('ski_rent_edit', { 'id': entity.id }) }}">{{ 'Редагувати' }}</a>
+                            <a href="{{ path('ski_rent_admin_edit', { 'id': entity.id }) }}">{{ 'Редагувати' }}</a>
                         </li>
                     </ul>
                 </td>
@@ -53,8 +53,8 @@
 
     <ul>
         <li>
-            {#<a href="{{ path('ski_rent_new') }}">{{ 'Додати запис'|trans }}</a>#}
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i>{{ 'Додати запис'|trans }}</a>
+            <a href="{{ path('ski_rent_admin_new') }}">{{ 'Додати запис'|trans }}</a>
+            {#<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i>{{ 'Додати запис'|trans }}</a>#}
         </li>
     </ul>
 {% endblock %}

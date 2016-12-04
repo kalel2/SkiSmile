@@ -2,10 +2,12 @@
 
 namespace SkiSmileBundle\Controller;
 
-use SkiSmileBundle\Entity\Product;
+use SkiSmileAdminBundle\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Product controller.
@@ -17,16 +19,17 @@ class ProductController extends Controller
      *
      * @Route("product/list", name="product_index")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/Product/index.html.twig")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $products = $em->getRepository('SkiSmileBundle:Product')->findAll();
+        $products = $em->getRepository('SkiSmileAdminBundle:Product')->findAll();
 
-        return $this->render('product/index.html.twig', array(
+        return array(
             'products' => $products,
-        ));
+        );
     }
 
     /**
@@ -34,12 +37,13 @@ class ProductController extends Controller
      *
      * @Route("product/{id}", name="product_show")
      * @Method("GET")
+     * @Template("@SkiSmileAdmin/Product/show.html.twig")
      */
     public function showAction(Product $product)
     {
 
-        return $this->render('product/show.html.twig', array(
+        return array(
             'product' => $product,
-        ));
+        );
     }
 }
