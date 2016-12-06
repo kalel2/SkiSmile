@@ -1,16 +1,41 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h1>Skiservice creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('ski_service_admin_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="ski-service-wrapper">
+        <div class="card-panel col s12">
+            {% block ski_form_title %}
+                <h3>{{ 'Додавання запису'|trans }}</h3>
+            {% endblock %}
+            <div class="row">
+                <div class="col s12 ski-form">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="input-field col s8 m10">
+                            {{ form_widget(form.service,{'attr':{'class':'validate'}}) }}
+                            {{ form_label(form.service) }}
+                            {{ form_errors(form.service) }}
+                        </div>
+                        <div class="input-field col s4 m2">
+                            {{ form_widget(form.price,{'attr':{'class':'validate'}}) }}
+                            {{ form_label(form.price) }}
+                            {{ form_errors(form.price) }}
+                        </div>
+                    </div>
+                    {% block ski_form_actions %}
+                        <div class="row">
+                            <div class="col s12 m3 submit-button">
+                                <input class="btn btn-action" type="submit" value="{{ 'Додати'|trans }}" />
+                            </div>
+                            <div class="col s12 m3">
+                                <a class="btn" href="{{ path('ski_service_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+                            </div>
+                        </div>
+                    {% endblock %}
+                    {{ form_end(form) }}
+                    {% block delete_form %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

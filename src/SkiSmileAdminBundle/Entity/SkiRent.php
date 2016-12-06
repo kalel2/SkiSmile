@@ -71,19 +71,19 @@ class SkiRent
      */
     private $priceFour;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="price_five", type="float", nullable=true)
-     */
-    private $priceFive;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="price_six", type="float", nullable=true)
-     */
-    private $priceSix;
+//    /**
+//     * @var float
+//     *
+//     * @ORM\Column(name="price_five", type="float", nullable=true)
+//     */
+//    private $priceFive;
+//
+//    /**
+//     * @var float
+//     *
+//     * @ORM\Column(name="price_six", type="float", nullable=true)
+//     */
+//    private $priceSix;
 
     /**
      * @var float
@@ -277,53 +277,53 @@ class SkiRent
         return $this->priceFour;
     }
 
-    /**
-     * Set priceFive
-     *
-     * @param float $priceFive
-     *
-     * @return SkiRent
-     */
-    public function setPriceFive($priceFive)
-    {
-        $this->priceFive = $priceFive;
-
-        return $this;
-    }
-
-    /**
-     * Get priceFive
-     *
-     * @return float
-     */
-    public function getPriceFive()
-    {
-        return $this->priceFive;
-    }
-
-    /**
-     * Set priceSix
-     *
-     * @param float $priceSix
-     *
-     * @return SkiRent
-     */
-    public function setPriceSix($priceSix)
-    {
-        $this->priceSix = $priceSix;
-
-        return $this;
-    }
-
-    /**
-     * Get priceSix
-     *
-     * @return float
-     */
-    public function getPriceSix()
-    {
-        return $this->priceSix;
-    }
+//    /**
+//     * Set priceFive
+//     *
+//     * @param float $priceFive
+//     *
+//     * @return SkiRent
+//     */
+//    public function setPriceFive($priceFive)
+//    {
+//        $this->priceFive = $priceFive;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get priceFive
+//     *
+//     * @return float
+//     */
+//    public function getPriceFive()
+//    {
+//        return $this->priceFive;
+//    }
+//
+//    /**
+//     * Set priceSix
+//     *
+//     * @param float $priceSix
+//     *
+//     * @return SkiRent
+//     */
+//    public function setPriceSix($priceSix)
+//    {
+//        $this->priceSix = $priceSix;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get priceSix
+//     *
+//     * @return float
+//     */
+//    public function getPriceSix()
+//    {
+//        return $this->priceSix;
+//    }
 
     /**
      * Set guarantee

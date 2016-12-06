@@ -1,7 +1,7 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="ski-rent-wrapper">
         <div class="card-panel col s12">
             {% block ski_form_title %}
                 <h3>{{ 'Додавання запису'|trans }}</h3>
@@ -40,16 +40,6 @@
                             {{ form_label(form.priceFour) }}
                             {{ form_errors(form.priceFour) }}
                         </div>
-                        <div class="input-field col s4 m2">
-                            {{ form_widget(form.priceFive,{'attr':{'class':'validate'}}) }}
-                            {{ form_label(form.priceFive) }}
-                            {{ form_errors(form.priceFive) }}
-                        </div>
-                        <div class="input-field col s4 m2">
-                            {{ form_widget(form.priceSix,{'attr':{'class':'validate'}}) }}
-                            {{ form_label(form.priceSix) }}
-                            {{ form_errors(form.priceSix) }}
-                        </div>
                         <div class="input-field col s4">
                             {{ form_widget(form.guarantee,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.guarantee) }}
@@ -67,6 +57,8 @@
                     </div>
                     {% endblock %}
                     {{ form_end(form) }}
+                    {% block delete_form %}
+                    {% endblock %}
                 </div>
             </div>
         </div>

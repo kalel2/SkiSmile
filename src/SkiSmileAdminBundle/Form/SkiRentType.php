@@ -25,27 +25,19 @@ class SkiRentType extends AbstractType
                 'required' => true
             ))
             ->add('priceOne', null , array(
-                'label' => 'Ціна 1',
+                'label' => '1 день',
                 'required' => true
             ))
             ->add('priceTwo', null , array(
-                'label' => 'Ціна 2',
+                'label' => '3-4 дні',
                 'required' => true
             ))
             ->add('priceThree', null , array(
-                'label' => 'Ціна 3',
+                'label' => '5-6 днів',
                 'required' => true
             ))
             ->add('priceFour', null , array(
-                'label' => 'Ціна 4',
-                'required' => true
-            ))
-            ->add('priceFive', null , array(
-                'label' => 'Ціна 5',
-                'required' => true
-            ))
-            ->add('priceSix', null , array(
-                'label' => 'Ціна 6',
+                'label' => '7-8 днів',
                 'required' => true
             ))
             ->add('guarantee', null , array(

@@ -14,8 +14,14 @@ class SkiServiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('service')
-            ->add('price');
+            ->add('service', null, array(
+                'label' => 'Послуга',
+                'required' => true
+            ))
+            ->add('price', null, array(
+                'label' => 'Ціна',
+                'required' => true
+            ));
     }
 
     /**

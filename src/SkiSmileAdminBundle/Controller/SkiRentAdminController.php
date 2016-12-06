@@ -53,7 +53,7 @@ class SkiRentAdminController extends Controller
             $em->persist($skiRent);
             $em->flush($skiRent);
 
-            return $this->redirectToRoute('ski_rent_admin_show', array('id' => $skiRent->getId()));
+            return $this->redirectToRoute('ski_rent_admin_index');
         }
 
         return array(
@@ -95,7 +95,7 @@ class SkiRentAdminController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ski_rent_admin_edit', array('id' => $skiRent->getId()));
+            return $this->redirectToRoute('ski_rent_admin_index');
         }
 
         return array(

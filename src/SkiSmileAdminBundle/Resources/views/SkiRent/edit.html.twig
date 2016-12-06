@@ -3,13 +3,19 @@
     <h3>{{ 'Редагування запису'|trans }}</h3>
 {% endblock %}
 {% block ski_form_actions %}
-    <div class="row">
+    <div class="row ski-form-actions">
         <div class="col s12 m3">
-            <a class="btn" href="{{ path('ski_rent_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+            <input class="btn col s12 m6" type="submit" value="{{ 'Редагувати'|trans }}" />
         </div>
+        <div class="col s12 m3">
+            <a class="btn col s12 m6" href="{{ path('ski_rent_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+        </div>
+
+{% endblock %}
+{% block delete_form %}
         <div class="col s12 m3 submit-button">
             {{ form_start(delete_form) }}
-            <input class="btn red" type="submit" value="{{ 'Видалити'|trans }}">
+            <input class="btn red col s12 m6" type="submit" value="{{ 'Видалити'|trans }}">
             {{ form_end(delete_form) }}
         </div>
     </div>

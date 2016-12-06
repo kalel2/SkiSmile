@@ -54,7 +54,7 @@ class SkiServiceAdminController extends Controller
             $em->persist($skiService);
             $em->flush($skiService);
 
-            return $this->redirectToRoute('ski_service_admin_show', array('id' => $skiService->getId()));
+            return $this->redirectToRoute('ski_service_admin_index');
         }
 
         return array(
@@ -96,12 +96,12 @@ class SkiServiceAdminController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ski_service_admin_edit', array('id' => $skiService->getId()));
+            return $this->redirectToRoute('ski_service_admin_index');
         }
 
         return array(
             'skiService' => $skiService,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
