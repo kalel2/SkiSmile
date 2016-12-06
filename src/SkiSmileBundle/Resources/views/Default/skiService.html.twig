@@ -1,0 +1,24 @@
+<div class="ski-service">
+    <h4 class="block-header">{{ 'SKI сервіс'|trans }}</h4>
+
+    <table class="stripped ski-table">
+        <thead>
+        <tr>
+            <th>{{ 'Послуга'|trans }}</th>
+            <th>{{ 'Ціна'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>
+                    {{ entity.service }}
+                </td>
+                <td>
+                    {{ entity.price }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,5 +1,33 @@
-{{ form_start(form, { 'action': path('contact_home'), 'method': 'POST', 'attr': {'class': 'blogger'}}) }}
-{{ form_widget(form) }}
-<input type="submit" value="Відправити"/>
-{{ form_end(form) }}
-{#{{ form_start(form, { 'action': path('BloggerBlogBundle_contact'), 'method': 'POST', 'attr': {'class': 'blogger'} }) }}#}
+<div class="contact-form-wrapper">
+    {{ form_start(form, { 'action': path('contact_home'), 'method': 'POST', 'attr': {'class': 'container'}}) }}
+    <div class="row">
+        <div class="input-field col s12 m6">
+            {{ form_widget(form.name, {'attr':{'class':'validate'}}) }}
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div class="input-field col s12 m6">
+            {{ form_widget(form.email, {'attr':{'class':'validate'}}) }}
+            {{ form_label(form.email) }}
+            {{ form_errors(form.email) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form_widget(form.subject, {'attr':{'class':'validate'}}) }}
+            {{ form_label(form.subject) }}
+            {{ form_errors(form.subject) }}
+        </div>
+        <div class="input-field col s12">
+            {{ form_widget(form.message, {'attr':{'class':'materialize-textarea'}}) }}
+            {{ form_label(form.message) }}
+            {{ form_errors(form.message) }}
+        </div>
+    </div>
+    <div class="center">
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            {{ 'Відправити'|trans }}
+        </button>
+    </div>
+    {{ form_end(form) }}
+</div>

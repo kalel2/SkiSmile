@@ -24,9 +24,23 @@
                 speed than the foreground content while scrolling.
                 Parallax is an effect where the background content or image in this case, is moved at a different
                 speed than the foreground content while scrolling.
-
-
             </p>
+            {% include 'SkiSmileBundle:Default:about.html.twig' %}
+        </div>
+    </div>
+    <div id="price" class="section white ski-rent-section">
+        <div class="row container">
+            {% include 'SkiSmileBundle:Default:skiRent.html.twig' with {entities : ski_rent} %}
+        </div>
+    </div>
+    <div class="section white ski-service-section">
+        <div class="row container">
+            {% include 'SkiSmileBundle:Default:skiService.html.twig' with {entities : ski_service} %}
+        </div>
+    </div>
+    <div class="section white ski-service-section">
+        <div class="row container">
+            {% include 'SkiSmileBundle:Default:places.html.twig' %}
         </div>
     </div>
     <div class="section white">

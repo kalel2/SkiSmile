@@ -18,7 +18,13 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $skiRent = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findAll();
+        $skiService = $em->getRepository('SkiSmileAdminBundle:SkiService')->findAll();
+        return array(
+            'ski_rent' => $skiRent,
+            'ski_service' => $skiService
+        );
     }
 
     /**
