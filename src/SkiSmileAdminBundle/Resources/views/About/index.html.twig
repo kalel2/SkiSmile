@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Abouts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rent</th>
+                <th>Service</th>
+                <th>Selling</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for about in abouts %}
+            <tr>
+                <td><a href="{{ path('about_admin_show', { 'id': about.id }) }}">{{ about.id }}</a></td>
+                <td>{{ about.rent }}</td>
+                <td>{{ about.service }}</td>
+                <td>{{ about.selling }}</td>
+                <td>{% if about.createdAt %}{{ about.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if about.updatedAt %}{{ about.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('about_admin_show', { 'id': about.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('about_admin_edit', { 'id': about.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('about_admin_new') }}">Create a new about</a>
+        </li>
+    </ul>
+{% endblock %}

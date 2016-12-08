@@ -261,16 +261,6 @@ class Product
         return $this->category;
     }
 
-//    public function getLocale()
-//    {
-//        return $this->locale;
-//    }
-//
-//    public function setLocale($locale)
-//    {
-//        $this->locale = $locale;
-//    }
-
     public function setTranslatableLocale($locale)
     {
         $this->locale = $locale;
@@ -282,20 +272,12 @@ class Product
             $this->translations[] = $t;
             $t->setObject($this);
         }
-//        $this->translations->add($t);
-//        $t->setObject($this);
     }
 
     public function removeTranslation(ProductTranslation $t)
     {
         $this->translations->removeElement($t);
     }
-
-//    public function setTranslations($translations)
-//    {
-//        $this->translations = $translations;
-//    }
-
 
     /**
      * Get translations

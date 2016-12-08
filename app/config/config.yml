@@ -106,6 +106,13 @@ vich_uploader:
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
+        foto_gallery:
+            uri_prefix:         /images/gallery
+            upload_destination: %kernel.root_dir%/../web/bundles/skismile/images/gallery
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
 
 #jms_i18n_routing configuration
 jms_i18n_routing:

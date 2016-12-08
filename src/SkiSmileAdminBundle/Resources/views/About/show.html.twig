@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>About</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ about.id }}</td>
+            </tr>
+            <tr>
+                <th>Rent</th>
+                <td>{{ about.rent }}</td>
+            </tr>
+            <tr>
+                <th>Service</th>
+                <td>{{ about.service }}</td>
+            </tr>
+            <tr>
+                <th>Selling</th>
+                <td>{{ about.selling }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if about.createdAt %}{{ about.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if about.updatedAt %}{{ about.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('about_admin_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('about_admin_edit', { 'id': about.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

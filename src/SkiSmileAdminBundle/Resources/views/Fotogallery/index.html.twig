@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fotogalleries list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Place</th>
+                <th>Imagename</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fotoGallery in fotoGalleries %}
+            <tr>
+                <td><a href="{{ path('fotogallery_admin_show', { 'id': fotoGallery.id }) }}">{{ fotoGallery.id }}</a></td>
+                <td>{{ fotoGallery.place }}</td>
+                <td>{{ fotoGallery.imageName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fotogallery_admin_show', { 'id': fotoGallery.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fotogallery_admin_edit', { 'id': fotoGallery.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fotogallery_admin_new') }}">Create a new fotoGallery</a>
+        </li>
+    </ul>
+{% endblock %}
