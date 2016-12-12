@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>{{ 'Послуга'|trans }}</th>
-                <th>{{ 'Ціна'|trans }}</th>
+                <th>{{ 'Ціна, грн'|trans }}</th>
                 <th>{{ 'Дії'|trans }}</th>
             </tr>
         </thead>
@@ -30,13 +30,10 @@
         {% endfor %}
         </tbody>
     </table>
-    <ul>
-        <li>
-            <a class="btn-floating waves-effect waves-light teal" href="{{ path('ski_service_admin_new') }}">
-                <i class="material-icons">add</i>
-                {{ 'Додати запис'|trans }}
-            </a>
-        </li>
-    </ul>
+    <div class="row admin-actions">
+        <a class="btn-floating waves-effect waves-circle waves-light teal" href="{{ path('ski_service_admin_new') }}">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
 </div>
 {% endblock %}

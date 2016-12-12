@@ -71,6 +71,13 @@ class SkiRent
      */
     private $priceFour;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="retail", type="boolean", nullable=true)
+     */
+    private $retail;
+
 //    /**
 //     * @var float
 //     *
@@ -377,6 +384,26 @@ class SkiRent
     public function getTranslations()
     {
         return $this->translations;
+    }
+
+    /**
+     * Get retail
+     *
+     * @return boolean
+     */
+    public function getRetail()
+    {
+        return $this->retail;
+    }
+
+    /**
+     * Set retail
+     *
+     * @param boolean $retail
+     */
+    public function setRetail($retail)
+    {
+        $this->retail = $retail;
     }
 }
 

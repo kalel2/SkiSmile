@@ -1,49 +1,54 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h1>Products list</h1>
+    <div class="product-page-wrapper">
+        <h4 class="center">{{ 'Список товарів'|trans }}</h4>
+        <div class="row">
+            {% for product in pagination %}
+                <div class="col s12 m4 l3 product-column">
+                    <div class="card product-container">
+                        <div class="card-image">
+                            {% set productImage = vich_uploader_asset(product, 'imageFile') %}
+                            <img class=" responsive-img product-image" src="{{ asset(['bundles/skismile/', productImage]|join) }}"  />
+                        </div>
+                        <div class="card-content">
+                            {{ product.description }}
+                            <br/>
+                            {{ product.price }}
+                        </div>
+                        <div class="card-action">
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <a class="btn btn-default waves-effect waves-light" href="{{ path('product_admin_show', { 'id': product.id }) }}">
+                                        {{ 'Переглянути'|trans }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <a class="btn btn-default waves-effect waves-light" href="{{ path('product_admin_edit', { 'id': product.id }) }}">
+                                        {{ 'Редагувати'|trans }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col s12 m4 l3">
+                <div class="card empty-card product-container">
+                    <span class="header-text center">{{ 'Додати товар'|trans }}</span>
+                    <div class="valign-wrapper new-product-wrapper">
+                        <a class="btn-floating btn-large waves-effect waves-circle waves-light teal valign" href="{{ path('product_admin_new') }}">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for product in products %}
-            <tr>
-                <td><a href="{{ path('product_admin_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.description }}</td>
-                <td>{% if product.createdAt %}{{ product.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if product.updatedAt %}{{ product.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('product_admin_show', { 'id': product.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('product_admin_edit', { 'id': product.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('product_admin_new') }}">Create a new product</a>
-        </li>
-    </ul>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
 {% endblock %}

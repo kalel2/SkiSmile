@@ -10,49 +10,54 @@
                 <div class="col s12 ski-form">
                     {{ form_start(form) }}
                     <div class="row">
-                        <div class="input-field col s4 m2">
+                        <div class="input-field col s12 m2">
                             {{ form_widget(form.category,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.category) }}
                             {{ form_errors(form.category) }}
                         </div>
-                        <div class="input-field col s8 m10">
+                        <div class="input-field col s12 m10">
                             {{ form_widget(form.inventory,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.inventory) }}
                             {{ form_errors(form.inventory) }}
                         </div>
-                        <div class="input-field col s4 m2">
+                        <div class="input-field col s12 m2">
                             {{ form_widget(form.priceOne,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.priceOne) }}
                             {{ form_errors(form.priceOne) }}
                         </div>
-                        <div class="input-field col s4 m2">
+                        <div class="input-field col s12 m2">
                             {{ form_widget(form.priceTwo,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.priceTwo) }}
                             {{ form_errors(form.priceTwo) }}
                         </div>
-                        <div class="input-field col s4 m2">
+                        <div class="input-field col s12 m2">
                             {{ form_widget(form.priceThree,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.priceThree) }}
                             {{ form_errors(form.priceThree) }}
                         </div>
-                        <div class="input-field col s4 m2">
+                        <div class="input-field col s12 m2">
                             {{ form_widget(form.priceFour,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.priceFour) }}
                             {{ form_errors(form.priceFour) }}
                         </div>
-                        <div class="input-field col s4">
+                        <div class="input-field col s12 m2">
                             {{ form_widget(form.guarantee,{'attr':{'class':'validate'}}) }}
                             {{ form_label(form.guarantee) }}
                             {{ form_errors(form.guarantee) }}
                         </div>
+                        <div class="input-field col s12">
+                            {{ form_widget(form.retail,{'attr':{'class':'validate'}}) }}
+                            {{ form_label(form.retail) }}
+                            {{ form_errors(form.retail) }}
+                        </div>
                     </div>
                     {% block ski_form_actions %}
-                    <div class="row">
+                    <div class="row ski-form-actions">
                         <div class="col s12 m3 submit-button">
-                            <input class="btn btn-action" type="submit" value="{{ 'Додати'|trans }}" />
+                            <input class="btn btn-action col s12" type="submit" value="{{ 'Додати'|trans }}" />
                         </div>
                         <div class="col s12 m3">
-                            <a class="btn" href="{{ path('ski_rent_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+                            <a class="btn col s12" href="{{ path('ski_rent_admin_index') }}">{{ 'Повернутись'|trans }}</a>
                         </div>
                     </div>
                     {% endblock %}

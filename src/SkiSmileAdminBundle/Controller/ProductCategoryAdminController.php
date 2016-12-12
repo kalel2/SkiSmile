@@ -53,7 +53,7 @@ class ProductCategoryAdminController extends Controller
             $em->persist($productCategory);
             $em->flush($productCategory);
 
-            return $this->redirectToRoute('product_category_admin_show', array('id' => $productCategory->getId()));
+            return $this->redirectToRoute('product_category_admin_index', array('id' => $productCategory->getId()));
         }
 
         return  array(

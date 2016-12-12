@@ -1,21 +1,43 @@
-{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
+{% extends '@SkiSmileAdmin/Product/new.html.twig' %}
 
-{% block body %}
-    <h1>Product edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('product_admin_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block ski_form_title %}
+    <h3>{{ 'Редагування товару'|trans }}</h3>
 {% endblock %}
+{% block ski_form_actions %}
+<div class="row ski-form-actions">
+    <div class="col s12 m3">
+        <input class="btn col s12 m6" type="submit" value="{{ 'Редагувати'|trans }}" />
+    </div>
+    <div class="col s12 m3">
+        <a class="btn col s12 m6" href="{{ path('product_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+    </div>
+
+    {% endblock %}
+    {% block delete_form %}
+    <div class="col s12 m3 submit-button">
+        {{ form_start(delete_form) }}
+        <input class="btn red col s12 m6" type="submit" value="{{ 'Видалити'|trans }}">
+        {{ form_end(delete_form) }}
+    </div>
+</div>
+{% endblock %}
+
+{#{% block body %}#}
+    {#<h1>Product edit</h1>#}
+
+    {#{{ form_start(edit_form) }}#}
+        {#{{ form_widget(edit_form) }}#}
+        {#<input type="submit" value="Edit" />#}
+    {#{{ form_end(edit_form) }}#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('product_admin_index') }}">Back to the list</a>#}
+        {#</li>#}
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
+    {#</ul>#}
+{#{% endblock %}#}

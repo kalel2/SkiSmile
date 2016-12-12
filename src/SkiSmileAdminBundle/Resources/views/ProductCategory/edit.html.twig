@@ -1,21 +1,33 @@
-{% extends 'base.html.twig' %}
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h1>Productcategory edit</h1>
+    <div class="row">
+        <h4 class="center">{{ 'Редагування категорії'|trans }}</h4>
+    </div>
+    <div class="card-panel ski-form">
+        {{ form_start(edit_form) }}
+        <div class="row ">
+            <div class="input-field col s12 m6">
+                {{ form_widget(edit_form.name,{'attr':{'class':'validate'}}) }}
+                {{ form_label(edit_form.name) }}
+                {{ form_errors(edit_form.name) }}
+            </div>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        </div>
+        <div class="row ski-form-actions">
+            <div class="col s12 m3 submit-button">
+                <input class="btn btn-action col s12 m6" type="submit" value="{{ 'Редагувати'|trans }}" />
+            </div>
+            <div class="col s12 m3">
+                <a class="btn col s12 m6" href="{{ path('product_category_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+            </div>
+        {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('product_category_admin_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            <div class="col s12 m3 submit-button">
+                {{ form_start(delete_form) }}
+                <input class="btn red col s12 m6" type="submit" value="{{ 'Видалити'|trans }}">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

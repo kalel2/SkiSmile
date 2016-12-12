@@ -2,58 +2,23 @@
 
 {% block body %}
     <div class="card-panel">
-    <h3>{{ 'Ціни на прокат інветаря 2016-2017' }}</h3>
+        {% include '@SkiSmileAdmin/Tables/skirentTable.html.twig'
+            with {
+                'entities': entities,
+                'title': 'Ціни на прокат інветаря 2016-2017 рр.'
+            }
+        %}
 
-    <table class="responsive-table striped ski-table">
-        <thead>
-            <tr class="table-info">
-                <th colspan="3"></th>
-                <th>{{ '-5-7%' }}</th>
-                <th>{{ '-7-10%' }}</th>
-                <th>{{ '-10-15%' }}</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="table-header">
-                <th>{{ 'Категорія'|trans }}</th>
-                <th>{{ 'Інвентар'|trans }}</th>
-                <th>{{ '1 день' }}</th>
-                <th>{{ '3-4 дні' }}</th>
-                <th>{{ '5-6 днів' }}</th>
-                <th>{{ '7-8 днів' }}</th>
-                <th>{{ 'Застава' }}</th>
-                <th>{{ 'Дії'|trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td>{{ entity.category }}</td>
-                <td>{{ entity.inventory }}</td>
-                <td>{{ entity.priceOne }}</td>
-                <td>{{ entity.priceTwo }}</td>
-                <td>{{ entity.priceThree }}</td>
-                <td>{{ entity.priceFour }}</td>
-                <td>{{ entity.guarantee }}</td>
-                <td>
-                    <a class="btn-floating btn-small waves-effect waves-light red"  href="{{ path('ski_rent_admin_edit', { 'id': entity.id }) }}">
-                        <i class="material-icons">edit</i>
-                        {{ 'Редагувати' }}
-                    </a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            {#<a href="{{ path('ski_rent_admin_new') }}">{{ 'Додати запис'|trans }}</a>#}
-            <a class="btn-floating waves-effect waves-light teal" href="{{ path('ski_rent_admin_new') }}">
+        {% include '@SkiSmileAdmin/Tables/skirentTable.html.twig'
+            with {
+            'entities': entitiesPart,
+            'title': 'Ціни на прокат інветаря  в роздріб 2016-2017 рр.'
+            }
+        %}
+        <div class="row admin-actions">
+            <a class="btn-floating waves-effect waves-circle waves-light teal" href="{{ path('ski_rent_admin_new') }}">
                 <i class="material-icons">add</i>
-                {{ 'Додати запис'|trans }}
             </a>
-        </li>
-    </ul>
+        </div>
     </div>
 {% endblock %}

@@ -28,10 +28,12 @@ class SkiRentAdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $skiRents = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findAll();
+        $skiRents = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findBy(array('retail'=>0));
+        $skiRentsPart = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findBy(array('retail'=>1));
 
         return array(
             'entities' => $skiRents,
+            'entitiesPart' => $skiRentsPart,
         );
     }
 

@@ -22,6 +22,7 @@ header {
     }
   }
   .ski-form-actions {
+    margin-top: 2.5em;
     div {
       &:not(:last-child) {
         @media @mobile-landscape-and-below {
@@ -33,4 +34,73 @@ header {
 }
 .ski-rent-wrapper {
   margin: 10px;
+}
+.admin-actions {
+  margin-top: 2.5em;
+}
+.product-page-wrapper {
+  .product-container {
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+  }
+  .product-column {
+    @media @tablet-only {
+      width:50% !important;
+    }
+    @media @desktop-l-only {
+      width:33% !important;
+    }
+    .card-image {
+      overflow: hidden;
+      .product-image {
+        transition: all .2s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .empty-card {
+    .header-text{
+      display: block;
+      width: 100%;
+      padding-top: 0.5em;
+      font-size: 1.5em;
+    }
+    .btn-floating {
+      transition: all .2s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .new-product-wrapper {
+    height: 200px;
+    .valign {
+      margin: 0 auto;
+    }
+  }
+  .paginator {
+    .pagination {
+      li {
+        &.active {
+          background-color: #263238;
+          color: white;
+          font-weight: bold;
+          display: inline-block;
+          font-size: 1.2rem;
+          padding: 0 10px;
+          line-height: 30px;
+        }
+        &.next, &.previous,
+        &.first, &.last {
+          a {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
 }

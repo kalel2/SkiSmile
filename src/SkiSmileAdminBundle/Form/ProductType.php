@@ -21,11 +21,24 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imageFile', FileType::class)
-            ->add('name', TextType::class)
-            ->add('price')
-            ->add('description', TextareaType::class)
+            ->add('imageFile', FileType::class, array(
+                'label' => 'Зображення',
+                'required'=> true
+            ))
+            ->add('name', TextType::class, array(
+                'label' => 'Назва товару',
+                'required'=> true
+            ))
+            ->add('price', null, array(
+                'label' => 'Ціна',
+                'required'=> true
+            ))
+            ->add('description', TextareaType::class, array(
+                'label' => 'Опис товару',
+                'required'=> true
+            ))
             ->add('category', EntityType::class , array(
+                'label' => 'Категорія',
                 'class' => 'SkiSmileAdminBundle:ProductCategory',
                 'choice_label' => 'name',
             ));

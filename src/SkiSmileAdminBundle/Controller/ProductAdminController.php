@@ -24,14 +24,21 @@ class ProductAdminController extends Controller
      * @Template("@SkiSmileAdmin/Product/index.html.twig")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $products = $em->getRepository('SkiSmileAdminBundle:Product')->findAll();
+        $paginator  = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $products,
+            $request->query->get('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
 
         return  array(
-            'products' => $products,
+            'pagination' => $pagination
         );
     }
 
@@ -90,17 +97,18 @@ class ProductAdminController extends Controller
     {
         $deleteForm = $this->createDeleteForm($product);
         $editForm = $this->createForm('SkiSmileAdminBundle\Form\ProductType', $product);
+
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('product_admin_edit', array('id' => $product->getId()));
+            return $this->redirectToRoute('product_admin_index');
         }
 
         return  array(
             'product' => $product,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
