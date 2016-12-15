@@ -1,4 +1,8 @@
 <div class="places">
+    <h3 class="center white-text">{{ 'Розташування'|trans }}</h3>
+    <p class="center white-text">
+        {{ 'Оберіть місце для перегляду детальної інформації.'|trans }}
+    </p>
     <div class="row">
         <div class="col s12">
             <ul class="tabs">
@@ -6,7 +10,57 @@
                 <li class="tab col s6"><a href="#yablunitsya">{{ 'Яблуниця'|trans }}</a></li>
             </ul>
         </div>
-        <div id="vorohta" class="col s12">{{ 'Adress here...'|trans }}</div>
-        <div id="yablunitsya" class="col s12">{{ 'Adress second here...'|trans }}</div>
+        <div id="vorohta" class="col s12 maps-wrapper">
+            <div class="col s12 m4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d663.6365601995353!2d24.561447488160077!3d48.29234489097324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDE3JzMyLjQiTiAyNMKwMzMnNDMuMiJF!5e0!3m2!1suk!2sua!4v1481578593104" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col s12 m4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m0!3m2!1suk!2sua!4v1481578899073!6m8!1m7!1s2Untb84T1f7mH_6hCwV5_g!2m2!1d48.29239367390608!2d24.56206058172279!3f267.236730266501!4f-4.251303402128428!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col s12 m4 contact-info">
+                <div class="row">
+                    <div class="col s12">
+                        <img alt="" src="{{ asset('bundles/skismile/images/vorokhta_qr.png') }}">
+                    </div>
+                    <div class="info col s12">
+                        <h5>{{ 'Контакти'|trans }}</h5>
+                        <p>
+                            {{ 'Адреса: смт. Ворохта, вул. Данила Галицького 19'|trans }}<br/>
+                            {{ 'Тел.: (098) 948-10-35, (098) 948-10-35'|trans }}<br/>
+                            {{ 'Gps: 48.292344, 24.561996'|trans }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="yablunitsya" class="col s12 maps-wrapper">
+            <div class="col s12 m4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d662.9262357868184!2d24.44710759443165!3d48.34697641735585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDIwJzQ5LjMiTiAyNMKwMjYnNTAuOSJF!5e0!3m2!1suk!2sua!4v1481762825942" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col s12 m4">
+                <div class="carousel carousel-slider center" data-indicators="true">
+                    <a class="carousel-item" href="#one!"><img src="{{ asset('bundles/skismile/images/yablynitsya/image-1-y.jpg') }}"></a>
+                    <a class="carousel-item" href="#two!"><img src="{{ asset('bundles/skismile/images/yablynitsya/image-2-yabl.jpg') }}"></a>
+                    <a class="carousel-item" href="#three!"><img src="{{ asset('bundles/skismile/images/yablynitsya/image-3-yabl.jpg') }}"></a>
+                    <a class="carousel-item" href="#four!"><img src="{{ asset('bundles/skismile/images/yablynitsya/image-4-yabl.jpg') }}"></a>
+                    <a class="carousel-item" href="#five!"><img src="{{ asset('bundles/skismile/images/yablynitsya/image-5-yabl.jpg') }}"></a>
+                </div>
+            </div>
+            <div class="col s12 m4 contact-info">
+                <div class="row">
+                    <div class="col s12">
+                        <img alt="" src="{{ asset('bundles/skismile/images/yablunitsya_qr.png') }}">
+                    </div>
+                    <div class="info col s12">
+                        <h5>{{ 'Контакти'|trans }}</h5>
+                        <p>
+                            {{ 'Адреса: с. Яблуниця, вул. Карпатська'|trans }}<br/>
+                            {{ 'Тел.: (098) 948-10-35, (098) 948-10-35'|trans }}<br/>
+                            {{ 'Gps: 48.292344, 24.561996'|trans }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

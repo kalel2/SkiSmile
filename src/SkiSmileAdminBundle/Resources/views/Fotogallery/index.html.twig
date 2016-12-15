@@ -1,41 +1,23 @@
-{% extends 'base.html.twig' %}
-
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 {% block body %}
-    <h1>Fotogalleries list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Place</th>
-                <th>Imagename</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for fotoGallery in fotoGalleries %}
-            <tr>
-                <td><a href="{{ path('fotogallery_admin_show', { 'id': fotoGallery.id }) }}">{{ fotoGallery.id }}</a></td>
-                <td>{{ fotoGallery.place }}</td>
-                <td>{{ fotoGallery.imageName }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('fotogallery_admin_show', { 'id': fotoGallery.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('fotogallery_admin_edit', { 'id': fotoGallery.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('fotogallery_admin_new') }}">Create a new fotoGallery</a>
-        </li>
-    </ul>
+    <div class="gallery-wrapper">
+        <h4 class="center">{{ 'Фотогалерея '|trans ~ place|capitalize }}</h4>
+        <div class="row">
+            <div class="row card-panel">
+                {% for fotoGallery in pagination %}
+                    <div class="col s12 m2">
+                        {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
+                        <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                        <a class="btn" href="{{ path('fotogallery_admin_edit', { 'id': fotoGallery.id, 'place': target }) }}">{{ 'Редагувати'|trans }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+        <div class="col s12">
+            {{ render(controller('SkiSmileAdminBundle:FotoGallery:new',{'place': target})) }}
+        </div>
+    </div>
 {% endblock %}

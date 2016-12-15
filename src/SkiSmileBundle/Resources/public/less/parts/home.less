@@ -8,20 +8,72 @@
         border: 1px solid teal;
         text-align: center;
       }
+      &.table-header {
+        @media @mobile-landscape-and-below {
+          th {
+            span {
+              display: block;
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
     }
   }
 }
-.places {
-  .tabs {
-    .tab {
-      a {
-        color: teal;
-        letter-spacing: 2px;
-        font-weight: bold;
+.places-section {
+  background-color: #05647a!important;
+  .places {
+    padding-top: 2em;
+    .tabs {
+      background-color: #05647a;
+      .tab {
+        a {
+          color: white;
+          letter-spacing: 2px;
+          font-weight: bold;
+        }
+      }
+      .indicator {
+        background-color: white;
       }
     }
-    .indicator {
-      background-color: teal;
+    .maps-wrapper {
+      padding: 2em 0 2em 0;
+      iframe {
+        width: 100%;
+      }
+    }
+    .contact-info {
+      color: white;
+      padding-top: 0.25em;
+      img {
+        width: 250px;
+        display: block;
+        float: left;
+        @media @mobile-landscape-and-below {
+          width: 100%;
+          padding-right: 0;
+          padding-bottom: 1em;
+        }
+      }
+    }
+    .carousel {
+      height: 450px;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+.ski-rent-section {
+  .table-two {
+    padding: 1.5em 0 1.5em 0;
+  }
+  .ski-rent-info {
+    span {
+      font-size: 1.1rem;
+      font-weight: 400;
     }
   }
 }
@@ -33,6 +85,10 @@
       height: 150px;
       padding: 0.25em;
       border-radius: 50%;
+      @media @mobile-landscape-and-below {
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 }

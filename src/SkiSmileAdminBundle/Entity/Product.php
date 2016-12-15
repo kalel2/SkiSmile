@@ -9,6 +9,8 @@ use SkiSmileAdminBundle\Entity\Traits\TimestampableTrait;
 use SkiSmileAdminBundle\Entity\Translation\ProductTranslation;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Mapping\Annotation as Gedmo; // gedmo annotations
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Product
@@ -33,9 +35,9 @@ class Product
     private $id;
 
     /**
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     * @var
      *
-     * @var File
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
      */
     private $imageFile;
 

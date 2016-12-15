@@ -20,31 +20,44 @@ class FotoGalleryController extends Controller
     /**
      * Lists all fotoGallery entities.
      *
-     * @Route("/", name="fotogallery_admin_index")
+     * @Route("/{place}", name="fotogallery_admin_index")
      * @Method("GET")
      * @Template("@SkiSmileAdmin/Fotogallery/index.html.twig")
      */
-    public function indexAction()
+    public function indexAction(Request $request, $place)
     {
+        $places = $this->getPlaces();
         $em = $this->getDoctrine()->getManager();
 
-        $fotoGalleries = $em->getRepository('SkiSmileAdminBundle:FotoGallery')->findAll();
+        $fotoGalleries = $em->getRepository('SkiSmileAdminBundle:FotoGallery')->findBy(array('place'=>$places[$place]));
+
+        $paginator  = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $fotoGalleries,
+            $request->query->get('page', 1)/*page number*/,
+            18/*limit per page*/
+        );
 
         return array(
-            'fotoGalleries' => $fotoGalleries,
+            'pagination' => $pagination,
+            'place' => $places[$place],
+            'target' => $place
         );
     }
 
     /**
      * Creates a new fotoGallery entity.
      *
-     * @Route("/new", name="fotogallery_admin_new")
+     * @Route("/{place}/new", name="fotogallery_admin_new")
      * @Method({"GET", "POST"})
      * @Template("@SkiSmileAdmin/Fotogallery/new.html.twig")
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $place)
     {
+        $places = $this->getPlaces();
         $fotoGallery = new Fotogallery();
+        $fotoGallery->setPlace($places[$place]);
         $form = $this->createForm('SkiSmileAdminBundle\Form\FotoGalleryType', $fotoGallery);
         $form->handleRequest($request);
 
@@ -53,12 +66,13 @@ class FotoGalleryController extends Controller
             $em->persist($fotoGallery);
             $em->flush($fotoGallery);
 
-            return $this->redirectToRoute('fotogallery_admin_show', array('id' => $fotoGallery->getId()));
+            return $this->redirectToRoute('fotogallery_admin_index', array('place'=>$place));
         }
 
         return array(
             'fotoGallery' => $fotoGallery,
             'form' => $form->createView(),
+            'place' => $place
         );
     }
 
@@ -82,11 +96,11 @@ class FotoGalleryController extends Controller
     /**
      * Displays a form to edit an existing fotoGallery entity.
      *
-     * @Route("/{id}/edit", name="fotogallery_admin_edit")
+     * @Route("/{id}/edit/{place}", name="fotogallery_admin_edit")
      * @Method({"GET", "POST"})
      * @Template("@SkiSmileAdmin/Fotogallery/edit.html.twig")
      */
-    public function editAction(Request $request, FotoGallery $fotoGallery)
+    public function editAction(Request $request, FotoGallery $fotoGallery, $place)
     {
         $deleteForm = $this->createDeleteForm($fotoGallery);
         $editForm = $this->createForm('SkiSmileAdminBundle\Form\FotoGalleryType', $fotoGallery);
@@ -95,13 +109,14 @@ class FotoGalleryController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('fotogallery_admin_edit', array('id' => $fotoGallery->getId()));
+            return $this->redirectToRoute('fotogallery_admin_index', array('place' => $place));
         }
 
         return array(
             'fotoGallery' => $fotoGallery,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'place' => $place
         );
     }
 
@@ -139,5 +154,12 @@ class FotoGalleryController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function getPlaces() {
+        return array(
+            'vorokhta' =>'Ворохта',
+            'yablunitsya' =>'Яблуниця'
+        );
     }
 }

@@ -13,14 +13,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * Review controller.
  *
- * @Route("reviews")
+ * @Route("admin/reviews")
  */
 class ReviewsController extends Controller
 {
     /**
      * Lists all review entities.
      *
-     * @Route("/", name="reviews_index")
+     * @Route("/", name="reviews_admin_index")
      * @Method("GET")
      * @Template("@SkiSmileAdmin/Reviews/index.html.twig")
      */

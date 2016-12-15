@@ -2,7 +2,7 @@
     <nav class="top-nav blue-grey darken-3">
         <div class="container center">
             <div class="site-logo">
-                <a href="#navbar" class="brand-logo blue-grey-text">
+                <a href="{{ path('admin_index') }}" class="brand-logo blue-grey-text">
                     <img src="{{ asset('bundles/skismile/images/ski-smile-logo.png')}}">
                 </a>
             </div>
@@ -47,8 +47,20 @@
                 {{ 'Категорії'|trans }}
             </a>
         </li>
-        <li><a class="waves-effect waves-light" href="#!"><i class="mdi mdi-map-marker-radius"></i>{{ 'Контактна інформація'|trans }}</a></li>
-        <li><a class="waves-effect waves-light" href="#!"><i class="mdi mdi-information"></i>{{ 'Про нас'|trans }}</a></li>
+        <li class="products-item">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header waves-effect waves-light"><i class="mdi mdi-palette"></i>{{ 'Фотогалерея'|trans }}</a>
+                    <div class="collapsible-body">
+                        <ul class="sub-items blue-grey darken-3">
+                            <li><a class="waves-effect waves-light" href="{{ path("fotogallery_admin_index", {'place': 'vorokhta'}) }}"><i class="mdi mdi-view-grid"></i>{{ 'Ворохта'|trans }}</a></li>
+                            <li><a class="waves-effect waves-light" href="{{ path("fotogallery_admin_index", {'place': 'yablunitsya'}) }}"><i class="mdi mdi-view-grid"></i>{{ 'Яблуниця'|trans }}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li><a class="waves-effect waves-light" href="{{ path("reviews_admin_index") }}"><i class="mdi mdi-message-outline"></i>{{ 'Відгуки'|trans }}</a></li>
         <li><a class="waves-effect waves-light" href="{{ path('fos_user_security_logout') }}"><i class="mdi mdi-logout"></i>{{ 'Вихід'|trans }}</a></li>
     </ul>
 </div>

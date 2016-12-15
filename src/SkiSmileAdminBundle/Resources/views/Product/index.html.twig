@@ -9,7 +9,7 @@
                     <div class="card product-container">
                         <div class="card-image">
                             {% set productImage = vich_uploader_asset(product, 'imageFile') %}
-                            <img class=" responsive-img product-image" src="{{ asset(['bundles/skismile/', productImage]|join) }}"  />
+                            <img class=" responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
                         </div>
                         <div class="card-content">
                             {{ product.description }}

@@ -1,4 +1,6 @@
 <div class="contact-form-wrapper">
+    <h4 class="center">{{ "У вас виникли запитання? Зв'яжіться з нами!"|trans }}</h4>
+    <h5 class="center">{{ 'Заповніть форму нижче, щоб надіслати e-mail'|trans }}</h5>
     {{ form_start(form, { 'action': path('contact_home'), 'method': 'POST', 'attr': {'class': 'container'}}) }}
     <div class="row">
         <div class="input-field col s12 m6">

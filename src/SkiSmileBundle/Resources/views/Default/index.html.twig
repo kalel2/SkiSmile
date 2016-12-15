@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
+        <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
     </div>
     <div class="section white">
         <div class="row container">
@@ -10,7 +10,35 @@
     </div>
     <div id="price" class="section white ski-rent-section">
         <div class="row container">
-            {% include 'SkiSmileBundle:Default:skiRent.html.twig' with {entities : ski_rent} %}
+            <div class="col s12 table-first">
+                {% include 'SkiSmileBundle:Default:skiRent.html.twig'
+                    with {
+                    title: 'Ціни на прокат інвентаря 2016-2017',
+                    entities : ski_rent
+                }
+                %}
+            </div>
+            <div class="col s12 table-two">
+                {% include 'SkiSmileBundle:Default:skiRent.html.twig'
+                    with {
+                    title: 'Ціни на прокат інвентаря в роздріб 2016-2017',
+                    entities : ski_rent_part
+                }
+                %}
+            </div>
+            <div class="col s12 ski-rent-info">
+                <div class="center">
+                    <span>
+                        {{
+                            'Якщо у вас не вистачає грошей для застави,
+                             ви можете залишити документ, що засвідчує вашу особу.'|trans
+                        }}
+                    </span>
+                </div>
+                <div class="center">
+                    <span>{{ 'УВАГА!!! Постійним клієнтам знижка 5-10%'|trans }}</span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="section white ski-service-section">
@@ -18,7 +46,7 @@
             {% include 'SkiSmileBundle:Default:skiService.html.twig' with {entities : ski_service} %}
         </div>
     </div>
-    <div class="section white ski-service-section">
+    <div class="section white places-section">
         <div class="row container">
             {% include 'SkiSmileBundle:Default:places.html.twig' %}
         </div>
@@ -29,6 +57,6 @@
         </div>
     </div>
     <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('bundles/skismile/images/Mountains.jpg') }}"></div>
+        <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Mountains.jpg') }}"></div>
     </div>
 {% endblock %}

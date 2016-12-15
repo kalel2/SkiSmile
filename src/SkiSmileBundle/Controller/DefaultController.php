@@ -19,10 +19,14 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $skiRent = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findAll();
+        // Ski rent entities
+        $skiRents = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findBy(array('retail'=>0));
+        $skiRentsPart = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findBy(array('retail'=>1));
+        // Ski service entity
         $skiService = $em->getRepository('SkiSmileAdminBundle:SkiService')->findAll();
         return array(
-            'ski_rent' => $skiRent,
+            'ski_rent' => $skiRents,
+            'ski_rent_part' => $skiRentsPart,
             'ski_service' => $skiService
         );
     }

@@ -1,47 +1,36 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <div class="col-md-8">
-        {% set productImage = vich_uploader_asset(product, 'imageFile') %}
-        <img class="thumbnail" src="{{ asset(['bundles/skismile/', productImage]|join) }}"  />
+    <div class="product-oveview-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    {% set productImage = vich_uploader_asset(product, 'imageFile') %}
+                    <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
+                </div>
+                <div class="col s12 m6">
+                    <div>
+                        {{ product.name }}
+                    </div>
+                    <div>
+                        {{ product.category }}
+                    </div>
+                    <div>
+                        {{ product.price }}
+                    </div>
+                </div>
+                <div class="col s12">
+                    {{ product.description }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 pull-left">
+                    <a class="btn" href="{{ path('product_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+                </div>
+                <div class="col s6 pull-right">
+                    <a class="btn" href="{{ path('product_admin_edit', { 'id': product.id }) }}">{{ 'Редагувати'|trans }}</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <h1>Product</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ product.price }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ product.description }}</td>
-            </tr>
-            <tr>
-                <th>Createdat</th>
-                <td>{% if product.createdAt %}{{ product.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedat</th>
-                <td>{% if product.updatedAt %}{{ product.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('product_admin_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('product_admin_edit', { 'id': product.id }) }}">Edit</a>
-        </li>
-    </ul>
 {% endblock %}
