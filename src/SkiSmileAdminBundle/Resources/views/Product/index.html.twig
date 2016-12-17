@@ -11,22 +11,21 @@
                             {% set productImage = vich_uploader_asset(product, 'imageFile') %}
                             <img class=" responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
                         </div>
-                        <div class="card-content">
-                            {{ product.description }}
-                            <br/>
-                            {{ product.price }}
+                        <div class="card-content center product-info">
+                            <div class="product-name">{{ product.name }}</div>
+                            <div class="product-price">{{ product.price ~ ' грн.' }}</div>
                         </div>
                         <div class="card-action">
                             <div class="row">
-                                <div class="col s12 m6">
-                                    <a class="btn btn-default waves-effect waves-light" href="{{ path('product_admin_show', { 'id': product.id }) }}">
+                                <div class="col s12">
+                                    <a class="btn btn-default waves-effect waves-light col s12" href="{{ path('product_admin_show', { 'id': product.id }) }}">
                                         {{ 'Переглянути'|trans }}
                                     </a>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s12 m6">
-                                    <a class="btn btn-default waves-effect waves-light" href="{{ path('product_admin_edit', { 'id': product.id }) }}">
+                                <div class="col s12">
+                                    <a class="btn btn-default waves-effect waves-light col s12" href="{{ path('product_admin_edit', { 'id': product.id }) }}">
                                         {{ 'Редагувати'|trans }}
                                     </a>
                                 </div>
@@ -35,7 +34,7 @@
                     </div>
                 </div>
             {% endfor %}
-            <div class="col s12 m4 l3">
+            <div class="col s12 m4 l3 product-column">
                 <div class="card empty-card product-container">
                     <span class="header-text center">{{ 'Додати товар'|trans }}</span>
                     <div class="valign-wrapper new-product-wrapper">

@@ -2,11 +2,27 @@
   .block-header {
     text-align: center;
   }
+  h5 {
+    font-weight: bold;
+    text-shadow: 2px 2px 6px #10375d;
+  }
   .ski-table {
+    thead {
+      th {
+        text-shadow: 2px 2px 6px #10375d;
+      }
+    }
+    tbody {
+      tr:hover {
+        cursor: pointer;
+        background-color: #10375d;
+      }
+    }
     tr {
       th,td {
-        border: 1px solid teal;
+        border: 1px solid white;
         text-align: center;
+        font-weight: 500;
       }
       &.table-header {
         @media @mobile-landscape-and-below {
@@ -19,12 +35,49 @@
         }
       }
     }
+    &.ski-service-table {
+      thead {
+        th {
+          text-shadow: 0 1px 1px #1C1E1C;
+        }
+      }
+      tbody {
+        tr:hover {
+          cursor: pointer;
+          background-color: #e0e2d5;
+        }
+      }
+      tr {
+        th,td {
+          border: 1px solid #10375d;
+        }
+      }
+    }
+  }
+}
+.ski-service {
+  h5, p {
+    text-shadow: 0 1px 1px #1C1E1C;
+  }
+  p {
+    font-size: 16px;
   }
 }
 .places-section {
   background-color: #05647a!important;
+  h3 {
+    font-weight: bold;
+    text-shadow: 2px 2px 6px #10375d;
+  }
   .places {
     padding-top: 2em;
+    p {
+      text-shadow: 2px 2px 6px #10375d;
+    }
+    h5 {
+      font-weight: bold;
+      text-shadow: 2px 2px 6px #10375d;
+    }
     .tabs {
       background-color: #05647a;
       .tab {
@@ -32,6 +85,7 @@
           color: white;
           letter-spacing: 2px;
           font-weight: bold;
+          text-shadow: 2px 2px 6px #10375d;
         }
       }
       .indicator {
@@ -52,7 +106,7 @@
         display: block;
         float: left;
         @media @mobile-landscape-and-below {
-          width: 100%;
+          width: 200px;
           padding-right: 0;
           padding-bottom: 1em;
         }
@@ -67,6 +121,8 @@
   }
 }
 .ski-rent-section {
+  background-color: #05647a!important;
+  color: white;
   .table-two {
     padding: 1.5em 0 1.5em 0;
   }
@@ -74,8 +130,12 @@
     span {
       font-size: 1.1rem;
       font-weight: 400;
+      text-shadow: 2px 2px 6px #10375d;
     }
   }
+}
+.ski-service-section {
+  color: #05647a;
 }
 .about-us {
   .header-image {
@@ -88,6 +148,43 @@
       @media @mobile-landscape-and-below {
         width: 80px;
         height: 80px;
+      }
+    }
+  }
+}
+.contact-section {
+  color: #05647a;
+  .contact-form-wrapper {
+    margin-top: 2em;
+    h4, h5 {
+      font-weight: bold;
+      text-shadow: 0 1px 2px #1C1E1C;
+    }
+    .card-panel {
+      box-shadow: 0 5px 20px #05647a;
+    }
+    form {
+      margin-top: 2em;
+      padding: 2em;
+      .input-field {
+        label {
+          color: #05647a;
+          font-weight: 500;
+        }
+        input, textarea {
+          border-bottom: 1px solid #05647a;
+        }
+        input:focus + label, textarea:focus + label {
+          color: #05647a;
+        }
+        input:focus, textarea:focus {
+          border-bottom: 1px solid #05647a;
+          box-shadow: 0 1px 0 0 #05647a;
+        }
+      }
+      button {
+        font-weight: bold;
+        background-color: #05647a!important;
       }
     }
   }

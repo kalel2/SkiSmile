@@ -1,0 +1,30 @@
+<div class="row">
+    {% for product in pagination %}
+        <div class="col s12 m4 l3 product-column">
+            <div class="card product-container">
+                <div class="card-image">
+                    {% set productImage = vich_uploader_asset(product, 'imageFile') %}
+                    <img class=" responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
+                </div>
+                <div class="card-content center product-info">
+                    <div class="product-name">{{ product.name }}</div>
+                    <div class="product-price">{{ product.price ~ ' грн.' }}</div>
+                </div>
+                <div class="card-action">
+                    <div class="row">
+                        <div class="col s12">
+                            <a class="btn btn-default waves-effect waves-light col s12 show-button" href="{{ path('product_show', { 'id': product.id }) }}">
+                                {{ 'Переглянути'|trans }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="row navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+</div>

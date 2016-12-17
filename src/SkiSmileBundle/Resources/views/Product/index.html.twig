@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="product-page">
+        <div class="parallax-container">
+            <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
+        </div>
+        <div class="row container product-block">
+            <div class="col s12 m2">
+                <div class="collection product-menu">
+                    {% set activeCategory = app.request.get('category')  %}
+                    <a href="{{ path('product_index') }}" class="collection-item {% if activeCategory == null %}{{ 'active' }}{% endif %}">
+                        {{ 'Всі товари'|trans }}
+                    </a>
+                    {% for category in categories %}
+                        <a href="{{ path('product_index', {'category': category.id}) }}" class="collection-item {% if activeCategory == category.id %}{{ 'active' }}{% endif %}">
+                            {{ category.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col s12 m10">
+                {% include '@SkiSmile/Product/list.html.twig' with { 'pagination' : pagination }%}
+            </div>
+        </div>
+    </div>
+{% endblock %}

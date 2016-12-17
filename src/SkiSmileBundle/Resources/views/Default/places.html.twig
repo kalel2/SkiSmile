@@ -6,8 +6,9 @@
     <div class="row">
         <div class="col s12">
             <ul class="tabs">
-                <li class="tab col s6"><a class="active" href="#vorohta">{{ 'Ворохта'|trans }}</a></li>
-                <li class="tab col s6"><a href="#yablunitsya">{{ 'Яблуниця'|trans }}</a></li>
+                <li class="tab col s4"><a class="active" href="#vorohta">{{ 'Ворохта'|trans }}</a></li>
+                <li class="tab col s4"><a href="#polyanitsya-1">{{ 'Поляниця №1'|trans }}</a></li>
+                <li class="tab col s4"><a href="#polyanitsya-2">{{ 'Поляниця №2'|trans }}</a></li>
             </ul>
         </div>
         <div id="vorohta" class="col s12 maps-wrapper">
@@ -26,16 +27,46 @@
                         <h5>{{ 'Контакти'|trans }}</h5>
                         <p>
                             {{ 'Адреса: смт. Ворохта, вул. Данила Галицького 19'|trans }}<br/>
-                            {{ 'Тел.: (098) 948-10-35, (098) 948-10-35'|trans }}<br/>
-                            {{ 'Gps: 48.292344, 24.561996'|trans }}
+                            {{ 'Тел.: (067) 834-15-88, (067) 173-16-30'|trans }}<br/>
+                            {#{{ 'Gps: 48.292344, 24.561996'|trans }}#}
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="yablunitsya" class="col s12 maps-wrapper">
+        <div id="polyanitsya-1" class="col s12 maps-wrapper">
             <div class="col s12 m4">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d662.9262357868184!2d24.44710759443165!3d48.34697641735585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDIwJzQ5LjMiTiAyNMKwMjYnNTAuOSJF!5e0!3m2!1suk!2sua!4v1481762825942" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://api-maps.yandex.ua/frame/v1/-/CZHGIYzU" width="610" height="450" frameborder="0"></iframe>
+                {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d662.9262357868184!2d24.44710759443165!3d48.34697641735585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDIwJzQ5LjMiTiAyNMKwMjYnNTAuOSJF!5e0!3m2!1suk!2sua!4v1481762825942" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>#}
+            </div>
+            <div class="col s12 m4">
+                <div class="carousel carousel-slider center" data-indicators="true">
+                    <a class="carousel-item" href="#one!"><img src="{{ asset('bundles/skismile/images/polyanitsya/image-1-y.jpg') }}"></a>
+                    <a class="carousel-item" href="#two!"><img src="{{ asset('bundles/skismile/images/polyanitsya/image-2-yabl.jpg') }}"></a>
+                    <a class="carousel-item" href="#three!"><img src="{{ asset('bundles/skismile/images/polyanitsya/image-3-yabl.jpg') }}"></a>
+                    <a class="carousel-item" href="#four!"><img src="{{ asset('bundles/skismile/images/polyanitsya/image-4-yabl.jpg') }}"></a>
+                    <a class="carousel-item" href="#five!"><img src="{{ asset('bundles/skismile/images/polyanitsya/image-5-yabl.jpg') }}"></a>
+                </div>
+            </div>
+            <div class="col s12 m4 contact-info">
+                <div class="row">
+                    <div class="col s12">
+                        <img alt="" src="{{ asset('bundles/skismile/images/polyanitsya-1-qr.png') }}">
+                    </div>
+                    <div class="info col s12">
+                        <h5>{{ 'Контакти'|trans }}</h5>
+                        <p>
+                            {{ 'Адреса: с. Поляниця, вул. Карпатська'|trans }}<br/>
+                            {{ 'Тел.: (067) 834-15-88, (067) 173-16-30'|trans }}<br/>
+                            {#{{ 'Gps: 48.292344, 24.561996'|trans }}#}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="polyanitsya-2" class="col s12 maps-wrapper">
+            <div class="col s12 m4">
+                <iframe src="https://api-maps.yandex.ua/frame/v1/-/CZHGEWP~" width="610" height="450" frameborder="0"></iframe>
             </div>
             <div class="col s12 m4">
                 <div class="carousel carousel-slider center" data-indicators="true">
@@ -49,14 +80,14 @@
             <div class="col s12 m4 contact-info">
                 <div class="row">
                     <div class="col s12">
-                        <img alt="" src="{{ asset('bundles/skismile/images/yablunitsya_qr.png') }}">
+                        <img alt="" src="{{ asset('bundles/skismile/images/polyanitsya-2-qr.png') }}">
                     </div>
                     <div class="info col s12">
                         <h5>{{ 'Контакти'|trans }}</h5>
                         <p>
-                            {{ 'Адреса: с. Яблуниця, вул. Карпатська'|trans }}<br/>
-                            {{ 'Тел.: (098) 948-10-35, (098) 948-10-35'|trans }}<br/>
-                            {{ 'Gps: 48.292344, 24.561996'|trans }}
+                            {{ 'Адреса: с. Поляниця, вул. Прохідний 19'|trans }}<br/>
+                            {{ 'Тел.: (067) 834-15-88, (067) 173-16-30'|trans }}<br/>
+                            {#{{ 'Gps: 48.292344, 24.561996'|trans }}#}
                         </p>
                     </div>
                 </div>

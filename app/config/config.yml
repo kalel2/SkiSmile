@@ -115,10 +115,10 @@ vich_uploader:
             delete_on_remove:   true
 
 #jms_i18n_routing configuration
-jms_i18n_routing:
-    default_locale: uk
-    locales: [uk, ru]
-    strategy: prefix
+#jms_i18n_routing:
+#    default_locale: uk
+#    locales: [uk, ru]
+#    strategy: prefix
 
 #knp_paginator
 knp_paginator:

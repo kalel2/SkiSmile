@@ -3,6 +3,10 @@
 {% block body %}
     <div class="row card-panel">
         <h4 class="center">{{ 'Редагувати фото'|trans }}</h4>
+        <div class="col s12 m3">
+            {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
+            <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+        </div>
         <div class="col s12">
             {{ form_start(edit_form, { 'action': path('fotogallery_admin_new',{'place': place}), 'method': 'POST'}) }}
             {#{{ form_widget(edit_form) }}#}

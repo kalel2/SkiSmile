@@ -6,9 +6,13 @@
             <div class="row card-panel">
                 {% for fotoGallery in pagination %}
                     <div class="col s12 m2">
-                        {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
-                        <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
-                        <a class="btn" href="{{ path('fotogallery_admin_edit', { 'id': fotoGallery.id, 'place': target }) }}">{{ 'Редагувати'|trans }}</a>
+                        <div class="image-block">
+                            {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
+                            <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                        </div>
+                        <div class="gallery-actions center">
+                            <a class="btn" href="{{ path('fotogallery_admin_edit', { 'id': fotoGallery.id, 'place': target }) }}">{{ 'Редагувати'|trans }}</a>
+                        </div>
                     </div>
                 {% endfor %}
             </div>

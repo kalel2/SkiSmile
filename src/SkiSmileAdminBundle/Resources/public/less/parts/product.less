@@ -1,0 +1,101 @@
+.product-page-wrapper {
+  .product-container {
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+  }
+  .product-column {
+    min-height: 450px;
+    @media @tablet-only {
+      width:50% !important;
+    }
+    @media @desktop-l-only {
+      width:33% !important;
+    }
+    .card-image {
+      width: 100%;
+      height: 225px;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      .product-image {
+        transition: all .2s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .empty-card {
+    .header-text{
+      display: block;
+      width: 100%;
+      padding-top: 0.5em;
+      font-size: 1.5em;
+    }
+    .btn-floating {
+      transition: all .2s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .new-product-wrapper {
+    height: 200px;
+    .valign {
+      margin: 0 auto;
+    }
+  }
+  .product-info {
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+}
+.product-oveview-wrapper {
+  .product-image-wrapper {
+    img {
+      width: 100%;
+    }
+  }
+  .product-header {
+    padding-bottom: 1.5em;
+  }
+  .underline {
+    margin-top: 0.25em;
+    border-bottom: 2px solid teal;
+  }
+  .product-name {
+    h4 {
+      font-weight: bold;
+    }
+  }
+  .product-price {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .product-description {
+
+  }
+  .product-contacts {
+
+  }
+  .pull-right {
+    float: right;
+  }
+  .pull-left {
+    float: left;
+  }
+  .desc {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .bottom-padding {
+    padding-bottom: 2em;
+  }
+  .info {
+    display: block;
+    font-size: 1.15rem;
+  }
+}

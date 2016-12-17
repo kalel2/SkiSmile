@@ -13,6 +13,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use SkiSmileAdminBundle\Entity\FotoGallery;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class FotoGalleryType extends AbstractType
 {
@@ -27,7 +28,9 @@ class FotoGalleryType extends AbstractType
                 'choices' => FotoGallery::$places,
                 'required' => true,
             ))
-            ->add('imageFile', FileType::class)
+            ->add('imageFile', FileType::class, array (
+                'required' => false
+            ))
         ;
     }
     

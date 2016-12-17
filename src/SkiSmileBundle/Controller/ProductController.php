@@ -17,18 +17,32 @@ class ProductController extends Controller
     /**
      * Lists all product entities.
      *
-     * @Route("product/list", name="product_index")
+     * @Route("product/list/{category}", name="product_index")
      * @Method("GET")
-     * @Template("@SkiSmileAdmin/Product/index.html.twig")
+     * @Template("@SkiSmile/Product/index.html.twig")
      */
-    public function indexAction()
+    public function indexAction(Request $request, $category = null)
     {
         $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('SkiSmileAdminBundle:ProductCategory')->findAll();
 
-        $products = $em->getRepository('SkiSmileAdminBundle:Product')->findAll();
+        if ($category) {
+            $products = $em->getRepository('SkiSmileAdminBundle:Product')->findBy(array('category'=>$category));
+        } else {
+            $products = $em->getRepository('SkiSmileAdminBundle:Product')->findAll();
+        }
+
+        $paginator  = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $products,
+            $request->query->get('page', 1)/*page number*/,
+            12/*limit per page*/
+        );
 
         return array(
-            'products' => $products,
+            'pagination' => $pagination,
+            'categories' => $categories
         );
     }
 
@@ -37,7 +51,7 @@ class ProductController extends Controller
      *
      * @Route("product/{id}", name="product_show")
      * @Method("GET")
-     * @Template("@SkiSmileAdmin/Product/show.html.twig")
+     * @Template("@SkiSmile/Product/show.html.twig")
      */
     public function showAction(Product $product)
     {

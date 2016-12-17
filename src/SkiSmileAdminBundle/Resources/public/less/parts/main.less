@@ -38,51 +38,6 @@ header {
 .admin-actions {
   margin-top: 2.5em;
 }
-.product-page-wrapper {
-  .product-container {
-    transition: box-shadow 0.3s ease-in-out;
-    &:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-  }
-  .product-column {
-    @media @tablet-only {
-      width:50% !important;
-    }
-    @media @desktop-l-only {
-      width:33% !important;
-    }
-    .card-image {
-      overflow: hidden;
-      .product-image {
-        transition: all .2s ease-in-out;
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
-  }
-  .empty-card {
-    .header-text{
-      display: block;
-      width: 100%;
-      padding-top: 0.5em;
-      font-size: 1.5em;
-    }
-    .btn-floating {
-      transition: all .2s ease-in-out;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-  .new-product-wrapper {
-    height: 200px;
-    .valign {
-      margin: 0 auto;
-    }
-  }
-}
 .paginator {
   .pagination {
     li {
@@ -101,6 +56,23 @@ header {
           padding: 0;
         }
       }
+    }
+  }
+}
+.gallery-wrapper {
+  .gallery-actions {
+    margin: 0.5em 0 0.5em 0;
+  }
+}
+.image-block {
+  width: 100%;
+  display: block;
+  height: 150px;
+  overflow: hidden;
+  &.form-image {
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 }
