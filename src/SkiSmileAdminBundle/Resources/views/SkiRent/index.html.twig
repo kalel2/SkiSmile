@@ -5,18 +5,18 @@
         {% include '@SkiSmileAdmin/Tables/skirentTable.html.twig'
             with {
                 'entities': entities,
-                'title': 'Ціни на прокат інвентаря 2016-2017 рр.'
+                'title': 'Ціни на прокат інвентаря 2016-2017 р.'
             }
         %}
 
         {% include '@SkiSmileAdmin/Tables/skirentTable.html.twig'
             with {
             'entities': entitiesPart,
-            'title': 'Ціни на прокат інвентаря  в роздріб 2016-2017 рр.'
+            'title': 'Ціни на прокат інвентаря  в роздріб 2016-2017 р.'
             }
         %}
         <div class="row admin-actions">
-            <a class="btn-floating waves-effect waves-circle waves-light teal" href="{{ path('ski_rent_admin_new') }}">
+            <a class="btn-floating btn-large waves-effect waves-circle waves-light teal" href="{{ path('ski_rent_admin_new') }}">
                 <i class="material-icons">add</i>
             </a>
         </div>

@@ -39,9 +39,16 @@ class SkiService
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="float", nullable=true)
+     * @ORM\Column(name="price", type="string", nullable=true)
      */
     private $price;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="retail", type="boolean", nullable=true)
+     */
+    private $retail;
 
     /**
      * @ORM\OneToMany(
@@ -111,7 +118,7 @@ class SkiService
     /**
      * Set price
      *
-     * @param float $price
+     * @param string $price
      *
      * @return SkiService
      */
@@ -125,11 +132,31 @@ class SkiService
     /**
      * Get price
      *
-     * @return float
+     * @return string
      */
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set retail
+     *
+     * @param boolean $retail
+     */
+    public function setRetail($retail)
+    {
+        $this->retail = $retail;
+    }
+
+    /**
+     * Get retail
+     *
+     * @return boolean
+     */
+    public function getRetail()
+    {
+        return $this->retail;
     }
 
     public function setTranslatableLocale($locale)

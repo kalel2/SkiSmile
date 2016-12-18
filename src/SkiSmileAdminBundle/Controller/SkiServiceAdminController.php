@@ -29,10 +29,12 @@ class SkiServiceAdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $skiServices = $em->getRepository('SkiSmileAdminBundle:SkiService')->findAll();
+        $skiServices = $em->getRepository('SkiSmileAdminBundle:SkiService')->findBy(array('retail'=>0));
+        $skiServicesPart = $em->getRepository('SkiSmileAdminBundle:SkiService')->findBy(array('retail'=>1));
 
         return array(
             'skiServices' => $skiServices,
+            'skiServicesPart' => $skiServicesPart,
         );
     }
 

@@ -57,19 +57,19 @@ class SkiRent
      */
     private $priceTwo;
 
-//    /**
-//     * @var float
-//     *
-//     * @ORM\Column(name="price_three", type="float", nullable=true)
-//     */
-//    private $priceThree;
-//
-//    /**
-//     * @var float
-//     *
-//     * @ORM\Column(name="price_four", type="float", nullable=true)
-//     */
-//    private $priceFour;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price_three", type="float", nullable=true)
+     */
+    private $priceThree;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price_four", type="float", nullable=true)
+     */
+    private $priceFour;
 
     /**
      * @var bool
@@ -236,53 +236,53 @@ class SkiRent
         return $this->priceTwo;
     }
 
-//    /**
-//     * Set priceThree
-//     *
-//     * @param float $priceThree
-//     *
-//     * @return SkiRent
-//     */
-//    public function setPriceThree($priceThree)
-//    {
-//        $this->priceThree = $priceThree;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get priceThree
-//     *
-//     * @return float
-//     */
-//    public function getPriceThree()
-//    {
-//        return $this->priceThree;
-//    }
-//
-//    /**
-//     * Set priceFour
-//     *
-//     * @param float $priceFour
-//     *
-//     * @return SkiRent
-//     */
-//    public function setPriceFour($priceFour)
-//    {
-//        $this->priceFour = $priceFour;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get priceFour
-//     *
-//     * @return float
-//     */
-//    public function getPriceFour()
-//    {
-//        return $this->priceFour;
-//    }
+    /**
+     * Set priceThree
+     *
+     * @param float $priceThree
+     *
+     * @return SkiRent
+     */
+    public function setPriceThree($priceThree)
+    {
+        $this->priceThree = $priceThree;
+
+        return $this;
+    }
+
+    /**
+     * Get priceThree
+     *
+     * @return float
+     */
+    public function getPriceThree()
+    {
+        return $this->priceThree;
+    }
+
+    /**
+     * Set priceFour
+     *
+     * @param float $priceFour
+     *
+     * @return SkiRent
+     */
+    public function setPriceFour($priceFour)
+    {
+        $this->priceFour = $priceFour;
+
+        return $this;
+    }
+
+    /**
+     * Get priceFour
+     *
+     * @return float
+     */
+    public function getPriceFour()
+    {
+        return $this->priceFour;
+    }
 
 //    /**
 //     * Set priceFive

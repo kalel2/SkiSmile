@@ -23,11 +23,13 @@ class DefaultController extends Controller
         $skiRents = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findBy(array('retail'=>0));
         $skiRentsPart = $em->getRepository('SkiSmileAdminBundle:SkiRent')->findBy(array('retail'=>1));
         // Ski service entity
-        $skiService = $em->getRepository('SkiSmileAdminBundle:SkiService')->findAll();
+        $skiService = $em->getRepository('SkiSmileAdminBundle:SkiService')->findBy(array('retail'=>0));
+        $skiServicePart = $em->getRepository('SkiSmileAdminBundle:SkiService')->findBy(array('retail'=>1));
         return array(
             'ski_rent' => $skiRents,
             'ski_rent_part' => $skiRentsPart,
-            'ski_service' => $skiService
+            'ski_service' => $skiService,
+            'ski_service_part' => $skiServicePart
         );
     }
 

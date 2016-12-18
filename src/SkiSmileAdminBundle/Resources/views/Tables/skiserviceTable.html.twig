@@ -1,0 +1,27 @@
+<table class="stripped ski-table ski-service">
+    <thead>
+    <tr>
+        <th>{{ 'Послуга'|trans }}</th>
+        <th>{{ 'Ціна, грн'|trans }}</th>
+        <th>{{ 'Дії'|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for skiService in skiServices %}
+        <tr>
+            <td>
+                {{ skiService.service }}
+            </td>
+            <td>
+                {{ skiService.price }}
+            </td>
+            <td>
+                <a class="btn-floating btn-small waves-effect waves-light red"  href="{{ path('ski_service_admin_edit', { 'id': skiService.id }) }}">
+                    <i class="material-icons">edit</i>
+                    {{ 'Редагувати' }}
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

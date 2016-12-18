@@ -9,7 +9,7 @@
         </div>
     </div>
     <div id="price" class="section white ski-rent-section">
-        <div class="row container">
+        <div class="row container tables-container">
             <div class="col s12 table-first">
                 {% include 'SkiSmileBundle:Default:skiRent.html.twig'
                     with {
@@ -43,7 +43,44 @@
     </div>
     <div class="section white ski-service-section">
         <div class="row container">
-            {% include 'SkiSmileBundle:Default:skiService.html.twig' with {entities : ski_service} %}
+            <div class="ski-service">
+                <h5 class="block-header">{{ 'Сервісне обслуговування'|trans }}</h5>
+                <p class="center">
+                    {{
+                        'Професійне сервісне обслуговування проводиться
+                        на станках швейцарської фірми MONTANA та німецької REICHMANN.'|trans
+                    }}
+                </p>
+                <div class="col s12 m6">
+                    {% include 'SkiSmileBundle:Default:skiService.html.twig' with {entities : ski_service_part } %}
+                </div>
+                <div class="col s12 m6">
+                    <table class="ski-table ski-service-table margin-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                   {{ 'ПОВНИЙ СЕРВІС (а + б + в + г + д + е)' }}
+                                </td>
+                                <td>
+                                    {{ '270 грн' }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ 'ПОВНИЙ СЕРВІС + СТРУКТУРА (а + б + в + г + д + е + є)' }}
+                                </td>
+                                <td>
+                                    {{ '310 грн' }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {% include 'SkiSmileBundle:Default:skiService.html.twig' with {entities : ski_service , full : true } %}
+                </div>
+                <div class="col s12 center">
+                    <p>{{ 'При замовленні сервісного обслуговування від 10 комплектів діє знижка 20% , від 50 - 30%.' }}</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="section white places-section">
