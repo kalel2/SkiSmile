@@ -33,6 +33,12 @@
         "css/materialdesignicons.min.css",
         "css/materialdesignicons.min.css.map"
       ]
+    },
+    "lightbox2": {
+      "main": [
+        "dist/css/lightbox.min.css",
+        "dist/js/lightbox.js"
+      ]
     }
   }
 }

@@ -1,0 +1,27 @@
+<div class="review-form-wrapper">
+    <div class="review-container">
+        <h5 class="review-title">{{ 'Залиште свій відгук'|trans }}</h5>
+        {{ form_start(form, { 'action': path('new_review'), 'method': 'POST', 'attr': {'class': 'review-form'}}) }}
+        <div class="row">
+            <div class="input-field col s12 m6">
+                {{ form_widget(form.name, {'attr':{'class':'validate'}}) }}
+                {{ form_label(form.name) }}
+                {{ form_errors(form.name) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                {{ form_widget(form.message, {'attr':{'class':'materialize-textarea'}}) }}
+                {{ form_label(form.message) }}
+                {{ form_errors(form.message) }}
+            </div>
+        </div>
+        <div class="center">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                {{ 'Залишити відгук'|trans }}
+            </button>
+        </div>
+        {{ form_end(form) }}
+
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="gallery-page">
+        <div class="parallax-container">
+            <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}"></div>
+        </div>
+        <div class="gallery-wrapper">
+            <h4 class="center page-header">{{ 'Фотогалерея '|trans }}</h4>
+            <div class="row">
+                <div class="row">
+                    {% for fotoGallery in pagination %}
+                        <div class="col s12 m2 image-wrapper">
+                            <div class="image">
+                                {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
+                                <img class="responsive-img product-image materialboxed" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

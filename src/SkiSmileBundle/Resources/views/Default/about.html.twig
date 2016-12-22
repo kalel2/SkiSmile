@@ -1,38 +1,41 @@
 <div class="about-us">
     <div class="intro center">
-        <h4>{{ 'Ми пропонуємо'|trans }}</h4>
+        {% autoescape false %} <h2><span>{{ 'Ski Smile &nbsp пропонує'|trans }}</span></h2>{% endautoescape %}
     </div>
     <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12 m4 about-item">
             <div class="header-image center">
                 <img alt="" src="{{ asset('bundles/skismile/images/rent.svg') }}">
             </div>
-            <h5 class="center">{{ 'Прокат спорядження'|trans }}</h5>
+            <h5 class="center"><span>{{ 'Прокат гірськолижного спорядження'|trans }}</span></h5>
+            <div class="divider-block"></div>
             <p class="center">
                 {{ 'Широкий вибір спорядження,' }}</br>
                 {{ 'яке ви можете взяти на прокат' }}</br>
                 {{ 'за вигідною ціною.' }}
             </p>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m4 about-item">
             <div class="header-image center">
                 <img alt="" src="{{ asset('bundles/skismile/images/service.png') }}">
             </div>
-            <h5 class="center">{{ 'Сервіс спорядження'|trans }}</h5>
+            <h5 class="center"><span>{{ 'Сервіс гірськолижного спорядження'|trans }}</span></h5>
+            <div class="divider-block"></div>
             <p class="center">
                 {{ 'У нас ви можете отримати професійне' }}</br>
                 {{ 'сервісне обслуговування спорядження.' }}
 
             </p>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m4 about-item">
             <div class="header-image center">
                 <img alt="" src="{{ asset('bundles/skismile/images/selling.png') }}">
             </div>
-            <h5 class="center">{{ 'Продаж спорядження'|trans }}</h5>
+            <h5 class="center"><span>{{ 'Продаж гірськолижного спорядження'|trans }}</span></h5>
+            <div class="divider-block"></div>
             <p class="center">
                 {{ 'Ви можете придбати спорядження' }}</br>
-                {{ 'беспосередньо на пуктах прокату.' }}
+                {{ 'беспосередньо на пунктах прокату.' }}
             </p>
         </div>
     </div>

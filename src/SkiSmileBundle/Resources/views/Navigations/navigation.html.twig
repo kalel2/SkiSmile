@@ -27,17 +27,42 @@
                     {#</a>#}
                 {#</li>#}
             {#</ul>#}
+            {% set aboutus_link = '#aboutus' %}
+            {% set rent_link = '#rent-price' %}
+            {% set service_link = '#service-price' %}
+            {% set place_link = '#place' %}
+            {% set contacts_link = '#contacts' %}
+            {% if app.request.attributes.get('_route') != 'home' %}
+                {% set aboutus_link = path('home') ~ '#aboutus' %}
+                {% set rent_link = path('home') ~ '#rent-price' %}
+                {% set service_link = path('home') ~ '#service-price' %}
+                {% set place_link = path('home') ~ '#place' %}
+                {% set contacts_link = path('home') ~ '#contacts' %}
+            {% endif %}
             <ul class="right hide-on-med-and-down">
-                <li><a class="head-link blue-grey-text" href="#aboutus">{{ 'Про нас'|trans }}</a></li>
-                <li><a class="head-link blue-grey-text" href="#price">{{ 'Ціни'|trans }}</a></li>
-                <li><a class="head-link blue-grey-text" href="#place">{{ 'Розташування'|trans }}</a></li>
-                <li><a class="head-link blue-grey-text" href="#contacts">{{ "Написати листа"|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ aboutus_link }}">{{ 'Про нас'|trans }}</a></li>
+                <li>
+                    <a class="dropdown-button blue-grey-text" data-activates='dropdown-menu' href="#">
+                        {{ 'Ціни'|trans }}
+                    </a>
+                    <ul id='dropdown-menu' class='dropdown-content'>
+                        <li><a class="head-link" href="{{ rent_link }}">{{ 'Прокат'|trans }}</a></li>
+                        <li class="divider"></li>
+                        <li><a class="head-link" href="{{ service_link }}">{{ 'Сервіс'|trans }}</a></li>
+                    </ul>
+                </li>
+                <li><a class="head-link blue-grey-text" href="{{ place_link }}">{{ 'Розташування'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ contacts_link }}">{{ "Написати листа"|trans }}</a></li>
+                <li><a class="blue-grey-text" href="{{ path('review') }}">{{ "Відгуки"|trans }}</a></li>
+
             </ul>
             <ul class="right side-nav" id="mobile">
-                <li><a class="head-link blue-grey-text" href="#aboutus">{{ 'Про нас'|trans }}</a></li>
-                <li><a class="head-link blue-grey-text" href="#price">{{ 'Ціни'|trans }}</a></li>
-                <li><a class="head-link blue-grey-text" href="#place">{{ 'Розташування'|trans }}</a></li>
-                <li><a class="head-link blue-grey-text" href="#contactus">{{ "Написати листа" |trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ aboutus_link }}">{{ 'Про нас'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ rent_link }}">{{ 'Ціни на прокат'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ service_link }}">{{ 'Ціни на сервіс'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ place_link }}">{{ 'Розташування'|trans }}</a></li>
+                <li><a class="head-link blue-grey-text" href="{{ contacts_link }}">{{ "Написати листа" |trans }}</a></li>
+                <li><a class="blue-grey-text" href="{{ path('review') }}">{{ "Відгуки"|trans }}</a></li>
             </ul>
             <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi mdi-menu mdi-48px"></i></a>
         </div>

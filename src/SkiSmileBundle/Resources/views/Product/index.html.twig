@@ -2,7 +2,7 @@
 {% block body %}
     <div class="product-page">
         <div class="parallax-container">
-            <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
+            <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}"></div>
         </div>
         <div class="row container product-block">
             <div class="col s12 m2">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col s12 m10">
-                {% include '@SkiSmile/Product/list.html.twig' with { 'pagination' : pagination }%}
+                {% include '@SkiSmile/Product/list.html.twig' with { 'pagination' : pagination } %}
             </div>
         </div>
     </div>

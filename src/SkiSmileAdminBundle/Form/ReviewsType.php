@@ -14,8 +14,12 @@ class ReviewsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('message');
+            ->add('name', null, array(
+                'label' => "Ваше ім'я"
+            ))
+            ->add('message', null, array(
+                'label' => "Ваш відгук"
+            ));
     }
     
     /**

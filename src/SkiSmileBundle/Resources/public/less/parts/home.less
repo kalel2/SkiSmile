@@ -124,6 +124,22 @@
         height: 100%;
       }
     }
+    .ski-smile-slider {
+      .slides {
+        height: 450px!important;
+      }
+      .indicators {
+        z-index: 2;
+        .indicator-item {
+          width: 12px;
+          height: 12px;
+          margin: 0 8px;
+          &.active {
+            background-color: #05647a!important;
+          }
+        }
+      }
+    }
   }
 }
 .ski-rent-section {
@@ -157,6 +173,42 @@
   color: #05647a;
 }
 .about-us {
+  .intro {
+    color: #05647a!important;
+    text-shadow: 0 1px 1px #1C1E1C;
+    margin-bottom: 3em;
+    span {
+      border: 2px solid;
+      padding: 0 30px 10px;
+      border-radius: 75px;
+      font-family: Lobster;
+      @media @mobile-landscape-and-below {
+        font-size: 2rem;
+      }
+    }
+  }
+  .about-item {
+    h5 {
+      color: #05647a!important;
+      text-shadow: 0 1px 1px #1C1E1C;
+      //span {
+      //  border-bottom: 2px solid;
+      //  padding-bottom: 5px;
+      //}
+      //margin-bottom: 1em;
+    }
+    p {
+      color: #05647a!important;
+      font-weight: 500;
+    }
+    .divider-block {
+      height: 2px;
+      overflow: hidden;
+      background-color: #05647a!important;
+      width: 67%;
+      margin: 0 auto;
+    }
+  }
   .header-image {
     img {
       border: 3px solid #00162e;
@@ -182,29 +234,115 @@
     .card-panel {
       box-shadow: 0 5px 20px #05647a;
     }
+  }
+}
+.footer-copyright {
+  color: #05647a!important;
+  font-weight: bold!important;
+}
+.contact-form-wrapper, .review-form-wrapper {
+  .review-title {
+    color: #05647a;
+    text-shadow: 0 1px 2px #1C1E1C;
+  }
+  form {
+    margin-top: 2em;
+    padding: 2em;
+    &.review-form {
+      margin-top: 0;
+      padding: 0;
+    }
+    .input-field {
+      label {
+        color: #05647a;
+        font-weight: 500;
+      }
+      input, textarea {
+        border-bottom: 1px solid #05647a;
+      }
+      input:focus + label, textarea:focus + label {
+        color: #05647a;
+      }
+      input:focus, textarea:focus {
+        border-bottom: 1px solid #05647a;
+        box-shadow: 0 1px 0 0 #05647a;
+      }
+    }
+    button {
+      font-weight: bold;
+      background-color: #05647a!important;
+    }
+  }
+}
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 50px;
+  bottom: 50px;
+  background-color: #05647a!important;
+  .material-icons {
+    font-size: 36px;
+  }
+  @media @mobile-landscape-and-below {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+.page-header {
+  font-family: Lobster;
+  color: #05647a;
+  text-shadow: 0 1px 2px #1C1E1C;
+  margin-bottom: 1em;
+}
+.review-page {
+  .review-form-wrapper {
     form {
-      margin-top: 2em;
-      padding: 2em;
-      .input-field {
-        label {
-          color: #05647a;
-          font-weight: 500;
+      input, textarea {
+        color: #05647a;
+      }
+    }
+  }
+  .review-block {
+    .review {
+      box-shadow: 0 2px 40px #05647a;
+      @media @mobile-landscape-and-below {
+        flex-direction: column;
+      }
+      .review-info {
+        .col {
+          padding: 0;
         }
-        input, textarea {
-          border-bottom: 1px solid #05647a;
-        }
-        input:focus + label, textarea:focus + label {
-          color: #05647a;
-        }
-        input:focus, textarea:focus {
-          border-bottom: 1px solid #05647a;
-          box-shadow: 0 1px 0 0 #05647a;
+        .review-header {
+          font-style: italic;
+          padding: 0.5em 0;
+          border-bottom: 2px solid #05647a;
+          .name {
+            font-size: 16px;
+            font-weight: bold;
+            //font-family: "Helvetica Neue", Arial, sans-serif;
+          }
+          .date {
+            text-align: right;
+            padding-right: 1em;
+            font-size: 14px;
+            @media @mobile-landscape-and-below {
+              text-align: left;
+            }
+          }
         }
       }
-      button {
-        font-weight: bold;
-        background-color: #05647a!important;
-      }
+    }
+  }
+  .review-container {
+    margin-top: 3em;
+  }
+}
+.gallery-page {
+  .gallery-wrapper {
+    .image-wrapper {
+      height: 200px;
+      overflow: hidden;
+      padding: 10px 5px;
     }
   }
 }

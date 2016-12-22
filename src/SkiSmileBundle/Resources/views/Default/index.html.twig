@@ -1,14 +1,16 @@
 {% extends '::base.html.twig' %}
 {% block body %}
     <div class="parallax-container">
-        <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Snowboarding.jpg') }}"></div>
+        <div class="parallax">
+            <img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}">
+        </div>
     </div>
-    <div class="section white">
+    <div id="aboutus" class="section white">
         <div class="row container">
             {% include 'SkiSmileBundle:Default:about.html.twig' %}
         </div>
     </div>
-    <div id="price" class="section white ski-rent-section">
+    <div id="rent-price" class="section white ski-rent-section">
         <div class="row container tables-container">
             <div class="col s12 table-first">
                 {% include 'SkiSmileBundle:Default:skiRent.html.twig'
@@ -41,7 +43,10 @@
             </div>
         </div>
     </div>
-    <div class="section white ski-service-section">
+    <div class="parallax-container">
+        <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Mountains.jpg') }}"></div>
+    </div>
+    <div id="service-price" class="section white ski-service-section">
         <div class="row container">
             <div class="ski-service">
                 <h5 class="block-header">{{ 'Сервісне обслуговування'|trans }}</h5>
@@ -83,17 +88,17 @@
             </div>
         </div>
     </div>
-    <div class="section white places-section">
+    <div id="place" class="section white places-section">
         <div class="row container">
             {% include 'SkiSmileBundle:Default:places.html.twig' %}
         </div>
     </div>
-    <div class="section white contact-section">
+    <div id="contacts" class="section white contact-section">
         <div class="row container">
             {{ render(controller('SkiSmileBundle:Default:contact')) }}
         </div>
     </div>
     <div class="parallax-container">
-        <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/Mountains.jpg') }}"></div>
+        <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-2.jpg') }}"></div>
     </div>
 {% endblock %}

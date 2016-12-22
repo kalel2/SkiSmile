@@ -7,10 +7,15 @@
         {% block stylesheets %}
             <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/vendor.min.css') }}" media="all"/>
             <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/app.min.css') }}" media="all"/>
+            <link type="text/css" rel="stylesheet" href="{{ asset('bundles/skismileadmin/iconfont/material-icons.css') }}" media="all"/>
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    <a href="#" class="btn-floating btn-large back-to-top">
+        <i class="material-icons">keyboard_arrow_up</i>
+    </a>
         {% block navigation %}
             {% include '@SkiSmile/Navigations/navigation.html.twig'%}
         {% endblock %}
@@ -29,18 +34,52 @@
                         closeOnClick: true,
                         draggable: true
                     });
-                    $('.carousel.carousel-slider').carousel({full_width: true, no_wrap: true, time_constant:100});
+                    $('.carousel.carousel-slider').carousel({
+                        full_width: true,
+                        no_wrap: true,
+                        time_constant:100
+                    });
+                    $('.dropdown-button').dropdown({
+                                belowOrigin: true, // Displays dropdown below the button
+                                alignment: 'left' // Displays dropdown with edge aligned to the left of button
+                            }
+                    );
+                    $('.slider').slider({full_width: true});
+                    $('.materialboxed').materialbox();
                 });
             </script>
             <script>
-                $('.head-link').click(function(e) {
-                    e.preventDefault();
+                var route = '{{ app.request.attributes.get('_route') }}';
 
-                    var goto = $(this).attr('href');
+                if (route == 'home') {
+//                    console.log(111);
+                    $('.head-link').click(function(e) {
+                        e.preventDefault();
 
+                        var goto = $(this).attr('href');
+
+                        $('html, body').animate({
+                            scrollTop: $(goto).offset().top - 75
+                        }, 800);
+                    });
+                }
+
+                ////// back to top button
+                var amountScrolled = 500;
+
+                $(window).scroll(function() {
+                    if ( $(window).scrollTop() > amountScrolled ) {
+                        $('a.back-to-top').fadeIn();
+                    } else {
+                        $('a.back-to-top').fadeOut();
+                    }
+                });
+
+                $('a.back-to-top').click(function() {
                     $('html, body').animate({
-                        scrollTop: $(goto).offset().top
-                    }, 800);
+                        scrollTop: 0
+                    }, 700);
+                    return false;
                 });
 
             </script>
