@@ -4,5 +4,44 @@
       color: #05647a;
       text-shadow: 0 1px 2px #1C1E1C;
     }
+    .review {
+      box-shadow: 0 2px 40px #05647a;
+      @media @mobile-landscape-and-below {
+        flex-direction: column;
+      }
+      .review-info {
+        .col {
+          padding: 0;
+        }
+        .review-header {
+          font-style: italic;
+          padding: 0.5em 0;
+          border-bottom: 2px solid #05647a;
+          .name {
+            font-size: 16px;
+            font-weight: bold;
+            //font-family: "Helvetica Neue", Arial, sans-serif;
+          }
+          .date {
+            text-align: right;
+            padding-right: 1em;
+            font-size: 14px;
+            @media @mobile-landscape-and-below {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+  .review-form-wrapper {
+    form {
+      input, textarea {
+        color: #05647a;
+      }
+    }
+  }
+  .review-container {
+    margin-top: 3em;
   }
 }
