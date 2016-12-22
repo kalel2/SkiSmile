@@ -12,7 +12,10 @@
                         <div class="col s12 m2 image-wrapper">
                             <div class="image">
                                 {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
-                                <img class="responsive-img product-image materialboxed" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                                {#<a href="images/image-2.jpg" data-lightbox="roadtrip">Image #2</a>#}
+                                <a href="{{ asset(['bundles/skismileadmin/', image]|join) }}" data-lightbox="{{ place }}" data-title="{{ fotoGallery.description }}">
+                                    <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                                </a>
                             </div>
                         </div>
                     {% endfor %}

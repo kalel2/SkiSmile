@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use SkiSmileAdminBundle\Entity\Traits\TimestampableTrait;
+use Gedmo\Mapping\Annotation as Gedmo; // gedmo annotations
 
 /**
  * FotoGallery
@@ -54,6 +55,13 @@ class FotoGallery
      * @ORM\Column(name="imageName", type="string", length=255)
      */
     private $imageName;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
 
     public function __construct()
     {
@@ -157,6 +165,30 @@ class FotoGallery
     public function getImageName()
     {
         return $this->imageName;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return FotoGallery
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
 

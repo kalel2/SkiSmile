@@ -8,6 +8,7 @@
             <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/vendor.min.css') }}" media="all"/>
             <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/app.min.css') }}" media="all"/>
             <link type="text/css" rel="stylesheet" href="{{ asset('bundles/skismileadmin/iconfont/material-icons.css') }}" media="all"/>
+            <link type="text/css" rel="stylesheet" href="{{ asset('bundles/skismile/css/lightbox.min.css') }}" media="all"/>
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -26,6 +27,7 @@
         {% endblock %}
         {% block javascripts %}
             <script src="{{ asset('dist/js/vendor.min.js') }}"></script>
+            <script src="{{ asset('bundles/skismile/js/lightbox.min.js') }}"></script>
             <script>
                 $(document).ready(function(){
                     $('.parallax').parallax();
@@ -45,7 +47,6 @@
                             }
                     );
                     $('.slider').slider({full_width: true});
-                    $('.materialboxed').materialbox();
                 });
             </script>
             <script>

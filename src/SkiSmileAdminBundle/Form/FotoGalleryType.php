@@ -31,6 +31,10 @@ class FotoGalleryType extends AbstractType
             ->add('imageFile', FileType::class, array (
                 'required' => false
             ))
+            ->add('description', null, array(
+                'label' => 'Опис',
+                'required' => false
+            ))
         ;
     }
     
