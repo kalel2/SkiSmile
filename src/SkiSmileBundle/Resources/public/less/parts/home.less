@@ -177,14 +177,16 @@
     color: #05647a!important;
     text-shadow: 0 1px 1px #1C1E1C;
     margin-bottom: 3em;
+    h2 {
+      @media @mobile-landscape-and-below {
+        font-size: 1.5rem;
+      }
+    }
     span {
       border: 2px solid;
       padding: 0 30px 10px;
       border-radius: 75px;
       font-family: Lobster;
-      @media @mobile-landscape-and-below {
-        font-size: 2rem;
-      }
     }
   }
   .about-item {
