@@ -5,32 +5,34 @@
         <div class="container">
             <div class="card-panel">
             <div class="row">
-                <div class="col s12 product-image-wrapper">
-                    {% set productImage = vich_uploader_asset(product, 'imageFile') %}
-                    <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
-                </div>
-                <div class="col s12 product-header">
-                    <div class="product-name">
-                        <h4 class="center">{{ product.name }}</h4>
+                <div class="col s12 product-top">
+                    <div class="col s12 m6 product-image-wrapper">
+                        {% set productImage = vich_uploader_asset(product, 'imageFile') %}
+                        <img class="responsive-img product-image materialboxed" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
                     </div>
-                    <div class="product-price center">
-                        {{ product.price ~ ' грн.' }}
+                    <div class="col s12 m6 product-header">
+                        <div class="product-name">
+                            <h4 class="">{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            {{ product.price ~ ' грн.' }}
+                        </div>
                     </div>
-                    <div class="col s12 m8 offset-m2 underline"></div>
                 </div>
                 <div class="col s12 product-description bottom-padding">
-                    <div class="col s12 m8 offset-m2">
-                        <span class="desc center">{{ 'Опис'|trans }}</span><br/>
-                        <p class="info">{{ product.description|nl2br }}</p>
+                    <div class="col s12">
+                        <span class="desc">{{ 'Характеристики'|trans }}</span>
+                        <div class="col s12 underline"></div>
+                        {{ product.description|raw }}
                     </div>
-                    <div class="col s12 m8 offset-m2 underline"></div>
                 </div>
-                <div class="col s12 product-contacts bottom-padding center">
-                    <div class="col s12 m8 offset-m2">
-                        <span class="desc">{{ 'Наші контакти'|trans }}</span><br/>
+                <div class="col s12 product-contacts bottom-padding">
+                    <div class="col s12">
+                        <span class="desc">{{ 'Наші контакти'|trans }}</span>
+                        <div class="col s12 underline"></div>
                         <span class="info">{{ '(098) 948-10-35' }}</span>
                         <span class="info">{{ '(098) 948-10-35' }}</span>
-                        <span class="info">{{ 'info@skismile.com.ua' }}</span>
+                        <span class="info">{{ 'info@ski-smile.com.ua' }}</span>
                     </div>
                 </div>
             </div>
@@ -45,4 +47,12 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        });
+    </script>
 {% endblock %}

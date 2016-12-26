@@ -6,8 +6,30 @@
     }
     .review {
       box-shadow: 0 2px 40px #05647a;
+      color: #05647a;
       @media @mobile-landscape-and-below {
         flex-direction: column;
+      }
+      &.odd {
+        text-shadow: 0.5px 0px 0.5px #1C1E1C!important;
+        .review-image {
+          i {
+            text-shadow: 0 1px 2px #1C1E1C!important;
+          }
+        }
+      }
+      &.even {
+        background-color: #05647a;
+        color: white;
+        text-shadow: 2px 2px 6px #10375d;
+        .review-header {
+          border-bottom: 2px solid white!important;
+        }
+      }
+      .review-image {
+        i {
+          font-size: 74px;
+        }
       }
       .review-info {
         .col {
@@ -32,16 +54,17 @@
           }
         }
       }
+      .review-message {
+        font-style: italic;
+      }
     }
   }
   .review-form-wrapper {
+    box-shadow: 0px 0px 7px gray;
     form {
       input, textarea {
         color: #05647a;
       }
     }
-  }
-  .review-container {
-    margin-top: 3em;
   }
 }

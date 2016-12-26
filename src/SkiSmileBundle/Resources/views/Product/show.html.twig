@@ -2,48 +2,46 @@
 {% block body %}
     <div class="product-oveview-wrapper">
         <div class="parallax-container">
-            {% set productImage = vich_uploader_asset(product, 'imageFile') %}
-            <div class="parallax"><img alt="" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"></div>
+            <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}"></div>
         </div>
         <div class="container">
-            <div class="card-panel">
+            <div class=" product-item">
                 <div class="row">
-                    <div class="col s12 product-image-wrapper">
-                        {% set productImage = vich_uploader_asset(product, 'imageFile') %}
-                        <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
-                    </div>
-                    <div class="col s12 product-header">
-                        <div class="product-name">
-                            <h4 class="center">{{ product.name }}</h4>
+                    <div class="col s12 product-top">
+                        <div class="col s12 m6 product-image-wrapper">
+                            {% set productImage = vich_uploader_asset(product, 'imageFile') %}
+                            <img class="responsive-img product-image materialboxed" src="{{ asset(['bundles/skismileadmin/', productImage]|join) }}"  />
                         </div>
-                        <div class="product-price center">
-                            {{ product.price ~ ' грн.' }}
+                        <div class="col s12 m6 product-header">
+                            <div class="product-name">
+                                <h4 class="">{{ product.name }}</h4>
+                            </div>
+                            <div class="product-price">
+                                {{ 'Ціна: ' ~ product.price ~ ' грн.' }}
+                            </div>
                         </div>
-                        <div class="col s12 m8 offset-m2 underline"></div>
                     </div>
                     <div class="col s12 product-description bottom-padding">
-                        <div class="col s12 m8 offset-m2">
-                            <span class="desc center">{{ 'Опис'|trans }}</span><br/>
-                            <p class="info">{{ product.description|nl2br }}</p>
+                        <div class="col s12">
+                            <span class="desc">{{ 'Характеристики'|trans }}</span>
+                            <div class="col s12 underline"></div>
+                            {{ product.description|raw }}
                         </div>
-                        <div class="col s12 m8 offset-m2 underline"></div>
                     </div>
-                    <div class="col s12 product-contacts bottom-padding center">
-                        <div class="col s12 m8 offset-m2">
-                            <span class="desc">{{ 'Наші контакти'|trans }}</span><br/>
-                            <span class="info">{{ '(098) 948-10-35' }}</span>
-                            <span class="info">{{ '(098) 948-10-35' }}</span>
-                            <span class="info">{{ 'info@skismile.com.ua' }}</span>
+                    <div class="col s12 product-contacts bottom-padding">
+                        <div class="col s12">
+                            <span class="desc">{{ 'Наші контакти'|trans }}</span>
+                            <div class="col s12 underline"></div>
+                            <span class="info">{{ '(067) 834-15-88' }}</span>
+                            <span class="info">{{ '(067) 173-16-30' }}</span>
+                            <span class="info">{{ 'info@ski-smile.com.ua' }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 m6">
-                        <a class="btn pull-left" href="{{ path('product_index') }}">{{ 'Повернутись'|trans }}</a>
+                    <div class="col s12 m6 pull-right">
+                        <a class="btn pull-right" href="{{ path('product_index') }}">{{ 'Повернутись'|trans }}</a>
                     </div>
-                    {#<div class="col s12 m6">#}
-                        {#<a class="btn pull-right" href="{{ path('product_admin_edit', { 'id': product.id }) }}">{{ 'Редагувати'|trans }}</a>#}
-                    {#</div>#}
                 </div>
             </div>
         </div>

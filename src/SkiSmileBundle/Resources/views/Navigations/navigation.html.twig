@@ -6,27 +6,6 @@
                     <img alt="" src="{{ asset('bundles/skismile/images/ski-smile-logo.png')}}">
                 </a>
             </div>
-            {#<ul class="language-switcher">#}
-                {#{% set route_args = app.request.attributes.get('_route_params')%}#}
-
-                {#{% if app.request.attributes.get('_route') == 'main' %}#}
-                    {#{% set route = 'main' %}#}
-                {#{% else %}#}
-                    {#{% set route = app.request.attributes.get('_route') %}#}
-                {#{% endif %}#}
-                {#<li>#}
-                    {#<a href='{{ path(route, route_args|merge({'_locale': 'uk'})) }}' class="blue-grey-text">#}
-                        {#<span class="icon flag flag-ua"></span>#}
-                        {#<span class="language-name">{{ 'UA' | trans }}</span>#}
-                    {#</a>#}
-                {#</li>#}
-                {#<li>#}
-                    {#<a href='{{ path(route, route_args|merge({'_locale': 'ru'})) }}' class="blue-grey-text">#}
-                        {#<span class="icon flag flag-ru"></span>#}
-                        {#<span class="language-name">{{ 'RU' | trans }}</span>#}
-                    {#</a>#}
-                {#</li>#}
-            {#</ul>#}
             {% set aboutus_link = '#aboutus' %}
             {% set rent_link = '#rent-price' %}
             {% set service_link = '#service-price' %}
@@ -53,6 +32,8 @@
                 </li>
                 <li><a class="head-link blue-grey-text" href="{{ place_link }}">{{ 'Розташування'|trans }}</a></li>
                 <li><a class="head-link blue-grey-text" href="{{ contacts_link }}">{{ "Написати листа"|trans }}</a></li>
+                <li><a class="blue-grey-text" href="{{ path('foto_gallery_index') }}">{{ "Фотогалерея" |trans }}</a></li>
+                <li><a class="blue-grey-text" href="{{ path('product_index') }}">{{ "Товари" |trans }}</a></li>
                 <li><a class="blue-grey-text" href="{{ path('review') }}">{{ "Відгуки"|trans }}</a></li>
 
             </ul>
@@ -62,6 +43,8 @@
                 <li><a class="head-link blue-grey-text" href="{{ service_link }}">{{ 'Ціни на сервіс'|trans }}</a></li>
                 <li><a class="head-link blue-grey-text" href="{{ place_link }}">{{ 'Розташування'|trans }}</a></li>
                 <li><a class="head-link blue-grey-text" href="{{ contacts_link }}">{{ "Написати листа" |trans }}</a></li>
+                <li><a class="blue-grey-text" href="{{ path('foto_gallery_index') }}">{{ "Фотогалерея" |trans }}</a></li>
+                <li><a class="blue-grey-text" href="{{ path('product_index') }}">{{ "Товари" |trans }}</a></li>
                 <li><a class="blue-grey-text" href="{{ path('review') }}">{{ "Відгуки"|trans }}</a></li>
             </ul>
             <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi mdi-menu mdi-48px"></i></a>

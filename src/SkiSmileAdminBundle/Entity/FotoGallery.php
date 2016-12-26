@@ -21,7 +21,7 @@ class FotoGallery
 {
     public static $places = array(
         'Ворохта' => 'Ворохта',
-        'Яблуниця' => 'Яблуниця'
+        'Поляниця' => 'Поляниця'
     );
 
     use TimestampableTrait;

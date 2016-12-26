@@ -31,21 +31,24 @@
             <script>
                 $(document).ready(function(){
                     $('.parallax').parallax();
+
                     $('.button-collapse').sideNav({
                         menuWidth: 300,
                         closeOnClick: true,
                         draggable: true
                     });
-                    $('.carousel.carousel-slider').carousel({
-                        full_width: true,
-                        no_wrap: true,
-                        time_constant:100
-                    });
+
+//                    $('.carousel.carousel-slider').carousel({
+//                        full_width: true,
+//                        no_wrap: true,
+//                        time_constant:100
+//                    });
+
                     $('.dropdown-button').dropdown({
-                                belowOrigin: true, // Displays dropdown below the button
-                                alignment: 'left' // Displays dropdown with edge aligned to the left of button
-                            }
-                    );
+                        belowOrigin: true, // Displays dropdown below the button
+                        alignment: 'left' // Displays dropdown with edge aligned to the left of button
+                    });
+
                     $('.slider').slider({full_width: true});
                 });
             </script>

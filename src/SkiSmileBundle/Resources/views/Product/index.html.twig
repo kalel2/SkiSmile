@@ -5,6 +5,7 @@
             <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}"></div>
         </div>
         <div class="row container product-block">
+            <h3 class="col s12 m10 offset-m2 center page-header"><span>{{ 'Рекомендовані товари'|trans }}</span></h3>
             <div class="col s12 m2">
                 <div class="collection product-menu">
                     {% set activeCategory = app.request.get('category')  %}
@@ -19,7 +20,19 @@
                 </div>
             </div>
             <div class="col s12 m10">
-                {% include '@SkiSmile/Product/list.html.twig' with { 'pagination' : pagination } %}
+                {% if pagination|length == 0 %}
+                    {% if activeCategory == null %}
+                        <h5 class="center empty-category">
+                            {{ "Товарів ще немає." }}
+                        </h5>
+                    {% else %}
+                        <h5 class="center empty-category">
+                            {{ 'В даній категорії товарів ще немає.' }}
+                        </h5>
+                    {% endif %}
+                {% else %}
+                    {% include '@SkiSmile/Product/list.html.twig' with { 'pagination' : pagination } %}
+                {% endif %}
             </div>
         </div>
     </div>

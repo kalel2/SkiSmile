@@ -5,20 +5,40 @@
             <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}"></div>
         </div>
         <div class="gallery-wrapper">
-            <h4 class="center page-header">{{ 'Фотогалерея '|trans }}</h4>
-            <div class="row">
+            <div class="row container">
                 <div class="row">
-                    {% for fotoGallery in pagination %}
-                        <div class="col s12 m2 image-wrapper">
-                            <div class="image">
-                                {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
-                                {#<a href="images/image-2.jpg" data-lightbox="roadtrip">Image #2</a>#}
-                                <a href="{{ asset(['bundles/skismileadmin/', image]|join) }}" data-lightbox="{{ place }}" data-title="{{ fotoGallery.description }}">
-                                    <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                <h3 class="col s12 m10 offset-m2 center page-header"><span>{{ 'Фотогалерея'|trans }}</span></h3>
+                    <div class="col s12 m2">
+                        <div class="collection gallery-menu">
+                            {% set activePlace = app.request.get('place')  %}
+                            <a href="{{ path('foto_gallery_index') }}" class="collection-item {% if activePlace == null %}{{ 'active' }}{% endif %}">
+                                {{ 'Всі фото'|trans }}
+                            </a>
+                            {% for place in places|keys %}
+                                <a href="{{ path('foto_gallery_index', {'place': place}) }}" class="collection-item {% if activePlace == place %}{{ 'active' }}{% endif %}">
+                                    {{ places[place] }}
                                 </a>
-                            </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
+                    </div>
+                    <div class="col s12 m10">
+                        {% if pagination|length == 0 %}
+                            <h5 class="center empty-category">
+                                {{ 'В даній категорії ще немає фото' }}
+                            </h5>
+                        {% else %}
+                            {% for fotoGallery in pagination %}
+                                <div class="col s12 m3 image-wrapper">
+                                    <div class="image">
+                                        {% set image = vich_uploader_asset(fotoGallery, 'imageFile') %}
+                                        <a href="{{ asset(['bundles/skismileadmin/', image]|join) }}" data-lightbox="{% if activePlace == null %}{{ 'all' }}{% else %}{{ activePlace }}{% endif %}" data-title="{{ fotoGallery.description }}">
+                                            <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="navigation">
                     {{ knp_pagination_render(pagination) }}

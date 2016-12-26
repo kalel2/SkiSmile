@@ -2,6 +2,7 @@
 
 namespace SkiSmileAdminBundle\Form;
 
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -34,8 +35,12 @@ class ProductType extends AbstractType
                 'label' => 'Ціна',
                 'required'=> true
             ))
-            ->add('description', TextareaType::class, array(
-                'label' => 'Опис товару',
+            ->add('description', CKEditorType::class, array(
+                'config' => array(
+                    'toolbar' => 'full',
+                    'uiColor' => "#26a69a"
+                ),
+                'label' => 'Характеристики',
                 'required'=> true
             ))
             ->add('category', EntityType::class , array(

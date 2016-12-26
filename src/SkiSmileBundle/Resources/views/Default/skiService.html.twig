@@ -1,36 +1,38 @@
-<table class="ski-table ski-service-table">
-    {%
-        set Alphabetic = {
-            '1' : 'а',
-            '2' : 'б',
-            '3' : 'в',
-            '4' : 'г',
-            '5' : 'д',
-            '6' : 'е',
-            '7' : 'є'
-        }
-    %}
-    <thead>
-    <tr>
-        <th {%  if full is defined and full %} {{ 'colspan="2"' }} {% endif %}>{{ 'Послуга'|trans }}</th>
-        <th>{{ 'Вартість, грн'|trans }}</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            {%  if full is defined and full %}
+<div class="ski-service">
+    <h5 class="block-header">{{ 'Сервісне обслуговування'|trans }}</h5>
+    <p class="center">
+        {{
+        'Професійне сервісне обслуговування проводиться
+                        на станках швейцарської фірми MONTANA та німецької REICHMANN.'|trans
+        }}
+    </p>
+    <div class="col s12 m6">
+        {% include 'SkiSmileBundle:Tables:ski_service.html.twig' with {entities : ski_service_part } %}
+    </div>
+    <div class="col s12 m6">
+        <table class="ski-table ski-service-table margin-table">
+            <tbody>
+            <tr>
                 <td>
-                    {{ Alphabetic[loop.index] }}
+                    {{ 'ПОВНИЙ СЕРВІС (а + б + в + г + д + е)' }}
                 </td>
-            {% endif %}
-            <td>
-                {{ entity.service }}
-            </td>
-            <td>
-                {{ entity.price }}
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+                <td>
+                    {{ '210 грн' }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ 'ПОВНИЙ СЕРВІС + СТРУКТУРА (а + б + в + г + д + е + є)' }}
+                </td>
+                <td>
+                    {{ '370 грн' }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        {% include 'SkiSmileBundle:Tables:ski_service.html.twig' with {entities : ski_service , full : true } %}
+    </div>
+    <div class="col s12 center">
+        <p>{{ 'При замовленні сервісного обслуговування від 10 комплектів діє знижка 20% , від 50 - 30%.' }}</p>
+    </div>
+</div>

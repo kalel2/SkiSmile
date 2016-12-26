@@ -17,7 +17,7 @@ class ProductController extends Controller
     /**
      * Lists all product entities.
      *
-     * @Route("product/list/{category}", name="product_index")
+     * @Route("/product/list/{category}", name="product_index")
      * @Method("GET")
      * @Template("@SkiSmile/Product/index.html.twig")
      */
@@ -49,7 +49,7 @@ class ProductController extends Controller
     /**
      * Finds and displays a product entity.
      *
-     * @Route("product/{id}", name="product_show")
+     * @Route("/product/{id}", name="product_show")
      * @Method("GET")
      * @Template("@SkiSmile/Product/show.html.twig")
      */

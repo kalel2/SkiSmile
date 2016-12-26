@@ -159,7 +159,7 @@ class FotoGalleryController extends Controller
     public function getPlaces() {
         return array(
             'vorokhta' =>'Ворохта',
-            'yablunitsya' =>'Яблуниця'
+            'polyanitsya' =>'Поляниця'
         );
     }
 }

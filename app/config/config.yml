@@ -40,6 +40,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'SkiSmileBundle:Form:form_errors.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -131,3 +133,9 @@ knp_paginator:
     template:
         pagination: SkiSmileAdminBundle:Pagination:pagination_material.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+#ckeditor
+ivory_ck_editor:
+    configs:
+        my_config:
+            toolbar: full

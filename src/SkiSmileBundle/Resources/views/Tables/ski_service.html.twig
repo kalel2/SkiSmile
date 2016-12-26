@@ -1,0 +1,36 @@
+<table class="ski-table ski-service-table">
+    {%
+    set Alphabetic = {
+    '1' : 'а',
+    '2' : 'б',
+    '3' : 'в',
+    '4' : 'г',
+    '5' : 'д',
+    '6' : 'е',
+    '7' : 'є'
+    }
+    %}
+    <thead>
+    <tr>
+        <th {%  if full is defined and full %} {{ 'colspan="2"' }} {% endif %}>{{ 'Послуга'|trans }}</th>
+        <th>{{ 'Вартість, грн'|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            {%  if full is defined and full %}
+                <td>
+                    {{ Alphabetic[loop.index] }}
+                </td>
+            {% endif %}
+            <td>
+                {{ entity.service }}
+            </td>
+            <td>
+                {{ entity.price }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

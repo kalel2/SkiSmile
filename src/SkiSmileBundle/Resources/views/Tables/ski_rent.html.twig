@@ -1,0 +1,38 @@
+<div class="ski-rent">
+    <h5 class="block-header">{{ title|trans }}</h5>
+    <table class="ski-table">
+        <thead>
+        <tr class="table-info">
+            <th colspan="2"></th>
+            <th colspan="5">{{ 'Вартість, грн' }}</th>
+        </tr>
+        <tr class="table-header">
+            <th><span>{{ 'Категорія'|trans }}</span></th>
+            <th><span>{{ 'Інвентар'|trans }}</span></th>
+            <th>
+                <span>{{ '1 день' }}</span><br/>
+                <span class="sub-text">
+                    {{ 'з 7-00 до 19-00' }}
+                </span>
+            </th>
+            <th><span>{{ '1-3 дні'|trans }}</span></th>
+            <th><span>{{ '4-6 днів'|trans }}</span></th>
+            <th><span>{{ '7-8 днів' }}</span></th>
+            <th><span>{{ 'Застава'|trans }}</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.category }}</td>
+                <td>{{ entity.inventory }}</td>
+                <td>{{ entity.priceOne }}</td>
+                <td>{{ entity.priceTwo }}</td>
+                <td>{{ entity.priceThree }}</td>
+                <td>{{ entity.priceFour }}</td>
+                <td>{{ entity.guarantee }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

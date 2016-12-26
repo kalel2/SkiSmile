@@ -1,8 +1,5 @@
-{% if error %}
-    {% include 'SkiSmileBundle:Default:contactWithError.html.twig' with {'form':form} %}
-{% else %}
-
-    {% block body %}
+{% extends '::base.html.twig' %}
+{% block body %}
     <div class="contact-form-wrapper container">
         <h4 class="center">{{ "Виникли запитання? Зв'яжіться з нами!"|trans }}</h4>
         <h5 class="center">{{ 'Заповніть форму нижче, щоб надіслати e-mail'|trans }}</h5>
@@ -38,6 +35,4 @@
         </div>
         {{ form_end(form) }}
     </div>
-    {% endblock %}
-
-{% endif %}
+{% endblock %}

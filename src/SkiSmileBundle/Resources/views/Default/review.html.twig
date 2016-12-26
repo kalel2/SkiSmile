@@ -4,7 +4,7 @@
         <div class="parallax-container">
             <div class="parallax"><img alt="" src="{{ asset('bundles/skismile/images/paralax-1.jpg') }}"></div>
         </div>
-        <h4 class="center page-header"><span>{{ 'Відгуки про Ski Smile'|trans }}</span></h4>
+        <h3 class="center page-header"><span>{{ 'Відгуки про Ski Smile'|trans }}</span></h3>
         <div class="row container review-block">
             {% if pagination|length == 0 %}
                 <div class="empty-review-text">
@@ -18,9 +18,9 @@
             {% else %}
                 <div class="col s12">
                     {% for review in pagination %}
-                        <div class="card horizontal review">
+                        <div class="card horizontal review {{ cycle(['even', 'odd'], loop.index) }}">
                             <div class="review-image col s12 m1">
-                                <i class="mdi mdi-account-circle" style="font-size: 74px"></i>
+                                <i class="mdi mdi-account-circle"></i>
                             </div>
                             <div class="review-info col s12 m11">
                                 <div class="review-header col s12">
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="review-message col s12">
                                     <p>
-                                        {{ review.message|nl2br }}
+                                         {{ review.message|nl2br }}
                                     </p>
                                 </div>
                             </div>

@@ -66,10 +66,11 @@ class DefaultController extends Controller
     private function sendMail($contactMessage)
     {
         $mail = \Swift_Message::newInstance()
-            ->setSubject('Ski Smile повідомлення')
-            ->setFrom($contactMessage->getEmail())
-            ->setTo('s.hrynenko@gmail.com')
-            ->setBody('message body goes here ' . $contactMessage->getMessage())
+            ->setSubject($contactMessage->getSubject())
+            ->setFrom(array($contactMessage->getEmail() => $contactMessage->getName()))
+            ->setSender($contactMessage->getEmail())
+            ->setTo('info@ski-smile.com.ua')
+            ->setBody($contactMessage->getMessage())
         ;
 
         $this->get('mailer')->send($mail);
@@ -134,27 +135,31 @@ class DefaultController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function galleryAction(Request $request, $place) {
+    public function galleryAction(Request $request, $place = null) {
         $places = array(
             'vorokhta' =>'Ворохта',
-            'yablunitsya' =>'Яблуниця'
+            'polyanitsya' =>'Поляниця'
         );
         $em = $this->getDoctrine()->getManager();
-
-        $fotoGalleries = $em->getRepository('SkiSmileAdminBundle:FotoGallery')->findBy(array('place'=>$places[$place]));
+        if ($place) {
+            $fotoGalleries = $em->getRepository('SkiSmileAdminBundle:FotoGallery')->findBy(array('place'=>$places[$place]));
+        } else {
+            $fotoGalleries = $em->getRepository('SkiSmileAdminBundle:FotoGallery')->findAll();
+        }
 
         $paginator  = $this->get('knp_paginator');
 
         $pagination = $paginator->paginate(
             $fotoGalleries,
             $request->query->get('page', 1)/*page number*/,
-            18/*limit per page*/
+            20/*limit per page*/
         );
 
         return array(
             'pagination' => $pagination,
-            'place' => $places[$place],
-            'target' => $place
+//            'place' => $places[$place],
+            'places' => $places,
+
         );
     }
 }

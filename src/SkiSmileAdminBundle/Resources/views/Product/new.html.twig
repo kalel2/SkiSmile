@@ -36,8 +36,8 @@
                             {{ form_errors(form.category) }}
                         </div>
                         <div class="input-field col s12">
-                            {{ form_widget(form.description,{'attr':{'class':'materialize-textarea'}}) }}
                             {{ form_label(form.description) }}
+                            {{ form_widget(form.description,{'attr':{'class':'ckeditor-textarea'}}) }}
                             {{ form_errors(form.description) }}
                         </div>
                     </div>
