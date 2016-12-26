@@ -43,7 +43,7 @@ class DefaultController extends Controller
     {
         $contactMessage = new ContactMessage();
         $form = $this->createForm(ContactMessageType::class, $contactMessage);
-
+        $error = false;
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
@@ -56,10 +56,13 @@ class DefaultController extends Controller
                 $this->sendMail($contactMessage);
 
                 return $this->redirectToRoute('home');
+            } else {
+                $error = true;
             }
         }
         return array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'error' => $error,
         );
     }
 
@@ -157,9 +160,7 @@ class DefaultController extends Controller
 
         return array(
             'pagination' => $pagination,
-//            'place' => $places[$place],
             'places' => $places,
-
         );
     }
 }

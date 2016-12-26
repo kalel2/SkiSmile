@@ -123,13 +123,14 @@ class FotoGalleryController extends Controller
     /**
      * Deletes a fotoGallery entity.
      *
-     * @Route("/{id}", name="fotogallery_admin_delete")
+     * @Route("/{place}/{id}", name="fotogallery_admin_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, FotoGallery $fotoGallery)
+    public function deleteAction(Request $request, FotoGallery $fotoGallery, $place = null)
     {
         $form = $this->createDeleteForm($fotoGallery);
         $form->handleRequest($request);
+        $place = $request->attributes->get('place');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -137,7 +138,7 @@ class FotoGalleryController extends Controller
             $em->flush($fotoGallery);
         }
 
-        return $this->redirectToRoute('fotogallery_admin_index');
+        return $this->redirectToRoute('fotogallery_admin_index', array('place'=>$place));
     }
 
     /**
@@ -149,8 +150,10 @@ class FotoGalleryController extends Controller
      */
     private function createDeleteForm(FotoGallery $fotoGallery)
     {
+        $places = $this->getPlaces();
+        $place = array_search($fotoGallery->getPlace(), $places);
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('fotogallery_admin_delete', array('id' => $fotoGallery->getId())))
+            ->setAction($this->generateUrl('fotogallery_admin_delete', array('place' => $place,'id' => $fotoGallery->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
