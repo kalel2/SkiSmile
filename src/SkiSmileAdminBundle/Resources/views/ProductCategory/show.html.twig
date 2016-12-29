@@ -13,14 +13,6 @@
                 <th>Name</th>
                 <td>{{ productCategory.name }}</td>
             </tr>
-            <tr>
-                <th>Createdat</th>
-                <td>{% if productCategory.createdAt %}{{ productCategory.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedat</th>
-                <td>{% if productCategory.updatedAt %}{{ productCategory.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
         </tbody>
     </table>
 

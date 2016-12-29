@@ -1,7 +1,7 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 {% block body %}
     <div class="gallery-wrapper">
-        <h4 class="center">{{ 'Фотогалерея '|trans ~ place|capitalize }}</h4>
+        <h4 class="center"><span>{{ 'Фотогалерея '|trans ~ place|capitalize }}</span></h4>
         <div class="row">
             <div class="row card-panel">
                 {% for fotoGallery in pagination %}

@@ -35,7 +35,7 @@ class ProductAdminController extends Controller
         $pagination = $paginator->paginate(
             $products,
             $request->query->get('page', 1)/*page number*/,
-            5/*limit per page*/
+            11/*limit per page*/
         );
 
         return  array(

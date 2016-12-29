@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SkiServiceType extends AbstractType
+class ReviewsAdminType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,18 +14,15 @@ class SkiServiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('service', null, array(
-                'label' => 'Послуга',
-                'required' => true
+            ->add('name', null, array(
+                'label' => "Ім'я"
             ))
-            ->add('price', null, array(
-                'label' => 'Ціна',
-                'required' => true
+            ->add('message', null, array(
+                'label' => "Відгук"
             ))
-            ->add('retail', null, array(
-                'label' => 'Роздріб',
-                'required' => false
-    ));
+            ->add('approved', null, array(
+                'label' => "Підтверджено"
+            ));
     }
 
     /**
@@ -34,7 +31,7 @@ class SkiServiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SkiSmileAdminBundle\Entity\SkiService'
+            'data_class' => 'SkiSmileAdminBundle\Entity\Reviews'
         ));
     }
 
@@ -43,7 +40,7 @@ class SkiServiceType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'skismilebundle_skiservice';
+        return 'skismileadminbundle_reviews';
     }
 
 

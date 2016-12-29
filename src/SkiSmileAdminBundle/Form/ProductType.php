@@ -25,7 +25,7 @@ class ProductType extends AbstractType
         $builder
             ->add('imageFile', FileType::class, array(
                 'label' => 'Зображення',
-                'required'=> true
+                'required'=> false
             ))
             ->add('name', TextType::class, array(
                 'label' => 'Назва товару',

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
     <h1>Review</h1>
@@ -20,14 +20,6 @@
             <tr>
                 <th>Approved</th>
                 <td>{% if review.approved %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Createdat</th>
-                <td>{% if review.createdAt %}{{ review.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedat</th>
-                <td>{% if review.updatedAt %}{{ review.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

@@ -9,7 +9,6 @@
         </div>
         <div class="col s12">
             {{ form_start(edit_form, { 'action': path('fotogallery_admin_edit',{'id':fotoGallery.id , 'place': place}), 'method': 'POST'}) }}
-            {#{{ form_widget(edit_form) }}#}
             <div class="input-field col s12 m6">
                 {{ form_widget(edit_form.place,{'attr':{'class':'validate'}}) }}
                 {{ form_label(edit_form.place) }}

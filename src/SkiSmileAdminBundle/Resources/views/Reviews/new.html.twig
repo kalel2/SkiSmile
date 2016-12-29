@@ -1,16 +1,39 @@
-{% extends 'base.html.twig' %}
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h1>Review creation</h1>
+<div class="review-container card-panel">
+    <h4>{{ 'Додавання відгуку'|trans }}</h4>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_start(form, { 'action': path('reviews_admin_new'), 'method': 'POST', 'attr': {'class': 'review-form'}}) }}
+    <div class="row">
+        <div class="input-field col s12 m6">
+            {{ form_widget(form.name, {'attr':{'class':'validate'}}) }}
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            {{ form_widget(form.message, {'attr':{'class':'materialize-textarea'}}) }}
+            {{ form_label(form.message) }}
+            {{ form_errors(form.message) }}
+        </div>
+        <div class="input-field col s12">
+            {{ form_widget(form.approved,{'attr':{'class':'validate'}}) }}
+            {{ form_label(form.approved) }}
+            {{ form_errors(form.approved) }}
+        </div>
+    </div>
+    <div class="row review-form-actions">
+        <div class="col s12 m3 submit-button">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                {{ 'Залишити відгук'|trans }}
+            </button>
+        </div>
+        <div class="col s12 m3">
+            <a class="btn" href="{{ path('reviews_admin_index') }}">{{ 'Повернутись'|trans }}</a>
+        </div>
+    </div>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('reviews_index') }}">Back to the list</a>
-        </li>
-    </ul>
+</div>
 {% endblock %}

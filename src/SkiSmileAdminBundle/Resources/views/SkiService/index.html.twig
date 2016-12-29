@@ -1,14 +1,14 @@
 {% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-<div class="card-panel">
-    <h3>{{ 'SKI сервіс'|trans }}</h3>
+<div class="card-panel ski-service-page">
+    <h4 class="center">{{ 'Сервісне обслуговування'|trans }}</h4>
         {% include '@SkiSmileAdmin/Tables/skiserviceTable.html.twig'
             with {
             'skiServices': skiServices,
             }
         %}
-
+    <h4 class="center">{{ 'Сервісне обслуговування таблиця 2'|trans }}</h4>
         {% include '@SkiSmileAdmin/Tables/skiserviceTable.html.twig'
             with {
             'skiServices': skiServicesPart,

@@ -60,8 +60,25 @@ header {
   }
 }
 .gallery-wrapper {
+  h4 {
+    color: #10375d;
+    font-family: Arial sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+  }
   .gallery-actions {
     margin: 0.5em 0 0.5em 0;
+  }
+}
+.ski-rent-page, .ski-service-page,
+.ski-rent-wrapper, .ski-service-wrapper,
+.product-page-wrapper, .product-wrapper,
+.product-category {
+  h4 {
+    color: #10375d;
+    font-family: Arial sans-serif;
+    font-style: italic;
+    font-weight: bolder
   }
 }
 .image-block {
@@ -74,5 +91,111 @@ header {
       width: 100%;
       height: auto;
     }
+  }
+}
+.review-page {
+  .page-header {
+    color: #10375d;
+    font-family: Arial sans-serif;
+    font-style: italic;
+    font-weight: bolder
+  }
+  .review-block {
+    .empty-review-text {
+      color: #05647a;
+      text-shadow: 0 1px 2px #1C1E1C;
+    }
+    .review {
+      //box-shadow: 0 2px 40px #05647a;
+      color: #05647a;
+      @media @mobile-landscape-and-below {
+        flex-direction: column;
+      }
+      &.odd {
+        text-shadow: 0.5px 0px 0.5px #1C1E1C!important;
+        .review-image {
+          i {
+            text-shadow: 0 1px 2px #1C1E1C!important;
+          }
+        }
+      }
+      &.even {
+        background-color: #05647a;
+        color: white;
+        text-shadow: 2px 2px 6px #10375d;
+        .review-header {
+          border-bottom: 2px solid white!important;
+        }
+      }
+      .review-image {
+        i {
+          font-size: 74px;
+        }
+      }
+      .review-info {
+        .col {
+          padding: 0;
+        }
+        .review-header {
+          font-style: italic;
+          padding: 0.5em 0;
+          border-bottom: 2px solid #05647a;
+          .name {
+            font-size: 16px;
+            font-weight: bold;
+            //font-family: "Helvetica Neue", Arial, sans-serif;
+          }
+          .date {
+            text-align: right;
+            padding-right: 1em;
+            font-size: 14px;
+            @media @mobile-landscape-and-below {
+              text-align: left;
+            }
+          }
+        }
+      }
+      .review-message {
+        font-style: italic;
+      }
+      .review-actions {
+        border-color: #05647a;
+        border-left: 2px solid;
+        &.even {
+          border-color: white;
+        }
+        @media @mobile-landscape-and-below {
+          border-left:none;
+          border-top: 2px solid;
+          padding: 1em;
+        }
+      }
+    }
+  }
+  .review-form-wrapper {
+    box-shadow: 0px 0px 7px gray;
+    form {
+      input, textarea {
+        color: #05647a;
+      }
+    }
+  }
+}
+.reviews-form-actions {
+  margin-top: 2.5em;
+  div {
+    &:not(:last-child) {
+      @media @mobile-landscape-and-below {
+        padding-bottom: 15px;
+      }
+    }
+  }
+}
+.review-container {
+  h4 {
+    color: #10375d;
+    font-family: Arial sans-serif;
+    font-style: italic;
+    font-weight: bolder;
   }
 }

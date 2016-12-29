@@ -89,7 +89,7 @@ class DefaultController extends Controller
     public function reviewAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
 
-        $reviews = $em->getRepository('SkiSmileAdminBundle:Reviews')->findAll();
+        $reviews = $em->getRepository('SkiSmileAdminBundle:Reviews')->findBy(array('approved'=>'1'));
 
         $paginator  = $this->get('knp_paginator');
 

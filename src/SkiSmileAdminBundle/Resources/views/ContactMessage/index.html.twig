@@ -13,7 +13,6 @@
                         </div>
                         <div class="card-action">
                             <a class="btn cyan" href="{{ path('contactmessage_admin_show', { 'id': contactMessage.id }) }}">{{ 'Переглянути'|trans }}</a>
-                            {#<a class="btn indigo " href="{{ path('contactmessage_admin_edit', { 'id': contactMessage.id }) }}">{{ 'Редагувати'|trans }}</a>#}
                         </div>
                     </div>
                 </div>
@@ -23,10 +22,4 @@
             {{ knp_pagination_render(pagination) }}
         </div>
     </div>
-
-    {#<ul>#}
-        {#<li>#}
-            {#<a href="{{ path('contactmessage_admin_new') }}">Create a new contactMessage</a>#}
-        {#</li>#}
-    {#</ul>#}
 {% endblock %}

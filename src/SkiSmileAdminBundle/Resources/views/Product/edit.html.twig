@@ -1,7 +1,11 @@
 {% extends '@SkiSmileAdmin/Product/new.html.twig' %}
 
 {% block ski_form_title %}
-    <h3 class="center">{{ 'Редагування товару'|trans }}</h3>
+    <h4 class="center">{{ 'Редагування товару'|trans }}</h4>
+    <div class="col s12 m3">
+        {% set image = vich_uploader_asset(product, 'imageFile') %}
+        <img class="responsive-img product-image" src="{{ asset(['bundles/skismileadmin/', image]|join) }}"  />
+    </div>
 {% endblock %}
 {% block ski_form_actions %}
 <div class="row ski-form-actions">

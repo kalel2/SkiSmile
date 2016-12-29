@@ -1,47 +1,50 @@
-{% extends 'base.html.twig' %}
+{% extends '@SkiSmileAdmin/Default/base.html.twig' %}
 
 {% block body %}
-    <h1>Reviews list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Message</th>
-                <th>Approved</th>
-                <th>Createdat</th>
-                <th>Updatedat</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for review in reviews %}
-            <tr>
-                <td><a href="{{ path('reviews_show', { 'id': review.id }) }}">{{ review.id }}</a></td>
-                <td>{{ review.name }}</td>
-                <td>{{ review.message }}</td>
-                <td>{% if review.approved %}Yes{% else %}No{% endif %}</td>
-                <td>{% if review.createdAt %}{{ review.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if review.updatedAt %}{{ review.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('reviews_show', { 'id': review.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('reviews_edit', { 'id': review.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('reviews_new') }}">Create a new review</a>
-        </li>
-    </ul>
+    <div class="review-page">
+        <h4 class="center page-header"><span>{{ 'Відгуки про Ski Smile'|trans }}</span></h4>
+        <div class="row review-block">
+            {% if pagination|length == 0 %}
+                <div class="empty-review-text">
+                    <h4 class="center">
+                        {{ 'Відгуків ще немає' }}
+                    </h4>
+                </div>
+            {% else %}
+                <div class="col s12">
+                    {% for review in pagination %}
+                        <div class="card horizontal review {{ cycle(['even', 'odd'], loop.index) }}">
+                            <div class="review-image col s12 m1">
+                                <i class="mdi mdi-account-circle"></i>
+                            </div>
+                            <div class="review-info col s12 m11">
+                                <div class="review-header col s12">
+                                    <div class="col s12 m8 name">
+                                        {{ review.name|capitalize }}
+                                    </div>
+                                    <div class="col s12 m4 date">
+                                        {{ 'Додано: '|trans ~ review.createdAt|date("d.m.Y \\о\\ H:i", "Europe/Kiev") }}
+                                    </div>
+                                </div>
+                                <div class="review-message col s12">
+                                    <p>
+                                        {{ review.message|nl2br }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col s12 m1 review-actions valign-wrapper {{ cycle(['even', 'odd'], loop.index) }}">
+                                <a class="btn-floating btn-small waves-effect waves-light red"  href="{{ path('reviews_admin_edit', { 'id': review.id }) }}">
+                                    <i class="material-icons">edit</i>
+                                    {{ 'Редагувати' }}
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
