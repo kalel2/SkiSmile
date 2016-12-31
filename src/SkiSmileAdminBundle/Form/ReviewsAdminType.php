@@ -40,7 +40,7 @@ class ReviewsAdminType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'skismileadminbundle_reviews';
+        return 'skismileadminbundle_reviews_admin';
     }
 
 
