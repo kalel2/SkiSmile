@@ -1,28 +1,28 @@
 <div class="row container tables-container">
     <div class="col s12 table-first">
         {% include 'SkiSmileBundle:Tables:ski_rent.html.twig'
-        with {
-        title: 'Ціни на прокат інвентаря 2016-2017',
-        entities : ski_rent
-        }
+            with {
+                title: 'Ціни на прокат інвентаря 2016-2017',
+                entities : ski_rent
+            }
         %}
     </div>
     <div class="col s12 table-two">
         {% include 'SkiSmileBundle:Tables:ski_rent.html.twig'
-        with {
-        title: 'Ціни на прокат інвентаря в роздріб 2016-2017',
-        entities : ski_rent_part
-        }
+            with {
+                title: 'Ціни на прокат інвентаря в роздріб 2016-2017',
+                entities : ski_rent_part
+            }
         %}
     </div>
     <div class="col s12 ski-rent-info">
         <div class="center">
-                    <span>
-                        {{
-                        'Якщо у вас не вистачає грошей для застави,
-                             ви можете залишити документ, що засвідчує вашу особу.'|trans
-                        }}
-                    </span>
+            <span>
+                {{
+                'Якщо у вас не вистачає грошей для застави,
+                     ви можете залишити документ, що засвідчує вашу особу.'|trans
+                }}
+            </span>
         </div>
         <div class="center">
             <span>{{ 'Ми залишаємо за собою право змінювати ціни'|trans }}</span>
